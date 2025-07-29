@@ -51,7 +51,7 @@ export interface Values {
 
 
 export interface ValuesDiff {
-    status?:           string[];
+    status?:           string[];  // [estado_anterior, estado_nuevo]
     kanban_order?:     number[];
     description_diff?: Array<null | string>;
     description_html?: string[];
