@@ -37,29 +37,29 @@ export function fetchUserStoryHistory(userStoryId: number): Promise<Hu[]> {
 
       res.on('end', () => {
         if (res.statusCode !== 200) {
-          console.error(`❌ [USER STORY SERVICE] Error HTTP para US #${userStoryId}: ${res.statusCode}`);
+          console.error(`❌ [USER STORY SERVICE] Error HTTP para HU #${userStoryId}: ${res.statusCode}`);
           reject(new Error(`HTTP Error ${res.statusCode}: ${data}`));
           return;
         }
 
         try {
           const json = JSON.parse(data) as Hu[];
-          console.log(`✅ [USER STORY SERVICE] Historial obtenido para US #${userStoryId}: ${Array.isArray(json) ? json.length : 0} entradas`);
+          console.log(`✅ [USER STORY SERVICE] Historial obtenido para HU #${userStoryId}: ${Array.isArray(json) ? json.length : 0} entradas`);
           resolve(json);
         } catch (error) {
-          console.error(`❌ [USER STORY SERVICE] Error al parsear JSON para US #${userStoryId}:`, error);
+          console.error(`❌ [USER STORY SERVICE] Error al parsear JSON para HU #${userStoryId}:`, error);
           reject(new Error('Error al parsear JSON en fetchUserStoryHistory: ' + (error as Error).message));
         }
       });
     });
 
     req.on('error', (error) => {
-      console.error(`❌ [USER STORY SERVICE] Error de conexión para US #${userStoryId}:`, error);
+      console.error(`❌ [USER STORY SERVICE] Error de conexión para HU #${userStoryId}:`, error);
       reject(error);
     });
 
     req.on('timeout', () => {
-      console.error(`⏰ [USER STORY SERVICE] Timeout de la petición para US #${userStoryId}`);
+      console.error(`⏰ [USER STORY SERVICE] Timeout de la petición para HU #${userStoryId}`);
       req.destroy();
       reject(new Error('Timeout de la petición HTTP'));
     });

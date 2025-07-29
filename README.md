@@ -18,11 +18,16 @@ Taiga_HU_states/
 ├── src/
 │   ├── interfaces/
 │   │   ├── consulta_sprint.interface.ts    # Interfaces para sprints
-│   │   └── consulta_status.interface.ts    # Interfaces para historial
+│   │   ├── consulta_status.interface.ts    # Interfaces para historial
+│   │   └── historial-json.interface.ts     # Interfaces para JSON de salida
 │   ├── services/
 │   │   ├── sprint.service.ts               # Servicio para consultar sprints
 │   │   └── userStory.service.ts            # Servicio para historial de US
+│   ├── scripts/
+│   │   └── process-historial.ts            # Script de procesamiento y filtrado
 │   ├── outputs/                            # Carpeta generada con resultados
+│   │   ├── json/                           # Archivos JSON estructurados
+│   │   └── txt/                            # Archivos de texto plano
 │   └── main.ts                             # Punto de entrada principal
 ├── package.json
 ├── tsconfig.json
@@ -97,14 +102,14 @@ set NODE_TLS_REJECT_UNAUTHORIZED=0
 
 ## 🏃‍♂️ Uso
 
-### Ejecución
+### Flujo de Trabajo Completo
 
 ```bash
-# Compila y ejecuta el proyecto
+# 1. Generar historial base (consulta API de Taiga)
 yarn start
 
-# O alternativamente
-npm run start
+# 2. Procesar y filtrar user stories (opcional)
+yarn process
 ```
 
 ### Scripts Disponibles
@@ -113,18 +118,38 @@ npm run start
 # Compilar TypeScript
 yarn build
 
-# Ejecutar (compila y ejecuta)
+# Ejecutar programa principal (consulta API y genera historial)
 yarn start
 
 # Debug de peticiones HTTP (para troubleshooting)
 yarn debug
+
+# Procesar historial JSON (filtrar y ordenar user stories)
+yarn process
+```
+
+### Ejecución Individual
+
+```bash
+# Solo compilar
+yarn build
+
+# Solo ejecutar (requiere compilación previa)
+node dist/main.js
+
+# Solo procesar historial (requiere historial.json previo)
+node dist/scripts/process-historial.js
 ```
 
 ## 📊 Salida del Programa
 
-El programa genera tres archivos en la carpeta `src/outputs/`:
+### Archivos Generados por `yarn start`
 
-### 1. `sprints_log.txt`
+El programa principal genera archivos organizados en carpetas por tipo:
+
+#### 📁 `src/outputs/txt/` - Archivos de Texto
+
+##### 1. `sprints_log.txt`
 Contiene información detallada de cada sprint:
 ```
 Sprint ID: 123 - Sprint 1
@@ -132,7 +157,7 @@ Sprint ID: 123 - Sprint 1
   - User Story ref: 457 | subject: Crear dashboard
 ```
 
-### 2. `user_story_ids.txt`
+##### 2. `user_story_ids.txt`
 Lista de IDs de todas las user stories encontradas:
 ```
 456
@@ -140,11 +165,142 @@ Lista de IDs de todas las user stories encontradas:
 458
 ```
 
-### 3. `historial_estados.txt`
+##### 3. `historial_estados.txt`
 Historial cronológico de cambios de estado de cada user story:
 ```
 Story ref: 456 - Implementar login | Date: 2024-01-15T10:30:00Z | Status: En Progreso
 Story ref: 456 - Implementar login | Date: 2024-01-16T14:20:00Z | Status: Terminado
+```
+
+#### 📁 `src/outputs/json/` - Archivos JSON
+
+##### 4. `historial.json`
+Historial estructurado en formato JSON con la siguiente estructura:
+```json
+[
+  {
+    "created_date": "2025-07-15",
+    "modified_date": "2025-07-20",
+    "name": "456 - Implementar login",
+    "ref": 456,
+    "subject": "Implementar login",
+    "status": "En Progreso"
+  },
+  {
+    "created_date": "2025-07-24",
+    "modified_date": "2025-07-25",
+    "name": "457 - Crear dashboard",
+    "ref": 457,
+    "subject": "Crear dashboard",
+    "status": "Terminado"
+  }
+]
+```
+
+### Archivos Generados por `yarn process`
+
+El script de procesamiento genera archivos adicionales organizados por tipo:
+
+#### 📁 `src/outputs/json/` - Archivos JSON de Análisis
+
+##### 1. `user_stories_report.json`
+Reporte general con estadísticas y user stories procesadas:
+```json
+{
+  "current_year": 2025,
+  "total_user_stories": 15,
+  "old_user_stories": [...],
+  "recent_user_stories": [...],
+  "ignored_previous_year": 3
+}
+```
+
+##### 2. `old_user_stories.json`
+User stories con más de 5 meses de antigüedad:
+```json
+[
+  {
+    "ref": 456,
+    "subject": "Implementar login",
+    "name": "456 - Implementar login",
+    "created_date": "2025-01-15",
+    "modified_date": "2025-07-20",
+    "status": "En Progreso",
+    "age_in_months": 8,
+    "is_old": true
+  }
+]
+```
+
+##### 3. `recent_user_stories.json`
+User stories con 5 meses o menos de antigüedad.
+
+#### 📁 `src/outputs/txt/` - Archivos de Texto de Análisis
+
+##### 4. `user_stories_summary.txt`
+Resumen en texto plano con estadísticas y listas organizadas por estado y mes:
+```
+=== REPORTE DE USER STORIES ===
+Fecha de procesamiento: 2025-07-29T15:56:22.576Z
+Año actual: 2025
+
+📈 ESTADÍSTICAS GENERALES:
+- Total User Stories únicas: 48
+- User Stories antiguas (>5 meses): 0
+- User Stories recientes (≤5 meses): 48
+- Entradas ignoradas (año anterior): 0
+
+📋 USER STORIES RECIENTES (≤5 meses) - CLASIFICADAS POR ESTADO:
+  📌 Develop in progress (6):
+    📅 Marzo 2025 (1):
+      - Ref: 970 | Estandarización y Mejora del Flujo de Desarrollo | Creada: 2025-03-28 | Edad: 4 meses
+    📅 Julio 2025 (2):
+      - Ref: 1231 | Reportes evaluación docente para vicerrector/decano | Creada: 2025-07-17 | Edad: 0 meses
+
+  📌 In QA / UX Test (1):
+    📅 Julio 2025 (1):
+      - Ref: 1145 | Generación y descarga de reportes de evaluación docente | Creada: 2025-07-23 | Edad: 0 meses
+
+  🏁 === USER STORIES COMPLETADAS ===
+
+  📌 Done (36):
+    📅 Marzo 2025 (8):
+      - Ref: 905 | Implementación de Ejemplos de Consumo de Endpoints | Creada: 2025-03-14 | Edad: 4 meses
+```
+
+##### 5. `user_stories_history.txt`
+Historial cronológico de user stories recientes ordenadas por fecha de creación:
+```
+=== HISTORIAL CRONOLÓGICO DE USER STORIES RECIENTES ===
+Fecha de procesamiento: 2025-07-29T15:56:22.576Z
+Año actual: 2025
+Total User Stories recientes: 48
+
+📋 HISTORIAL ORDENADO POR FECHA DE CREACIÓN (MÁS ANTIGUA → MÁS RECIENTE):
+1. Ref: 905 | Implementación de Ejemplos de Consumo de Endpoints con API Key
+   📅 Creada: 2025-03-14
+   📊 Estado actual: Done
+   ⏰ Edad: 4 meses
+   📝 Última modificación: 2025-03-21
+```
+
+##### 6. `user_stories_detailed_history.txt`
+Historial detallado con todos los cambios de estado de cada user story:
+```
+=== HISTORIAL DETALLADO DE CAMBIOS DE ESTADO - USER STORIES RECIENTES ===
+Fecha de procesamiento: 2025-07-29T15:56:22.576Z
+Año actual: 2025
+Total User Stories recientes: 48
+
+📋 CAMBIOS DE ESTADO ORDENADOS POR FECHA DE CREACIÓN (MÁS ANTIGUA → MÁS RECIENTE):
+1. Ref: 1231 | Reportes evaluación docente para vicerrector/decano
+   📅 Creada: 2025-07-17
+   📊 Estado actual: Develop in progress
+   ⏰ Edad: 0 meses
+   📝 Última modificación: 2025-07-17
+   🔄 Cambios de estado (15):
+      1. 2025-07-15 → Open / Ready for sprint
+      2. 2025-07-17 → Develop in progress
 ```
 
 ## 🔍 Funcionalidades
@@ -158,11 +314,28 @@ Story ref: 456 - Implementar login | Date: 2024-01-16T14:20:00Z | Status: Termin
 - Recopila metadatos de cada user story (ref, subject)
 - Consulta el historial completo de cambios de estado
 - Genera timeline de evolución de estados
+- Procesa y filtra user stories por antigüedad y criterios específicos
+
+### Procesamiento Avanzado
+- **Elimina duplicados**: Usa referencias únicas para evitar repeticiones
+- **Ordena por antigüedad**: User stories más antiguas primero
+- **Filtra por edad**: Separa user stories > 5 meses vs ≤ 5 meses
+- **Ignora año anterior**: Solo procesa datos del año actual
+- **Calcula estadísticas**: Edad en meses, conteos, etc.
+- **Agrupa por mes**: Organiza user stories por mes de creación dentro de cada estado
+- **Prioriza estados activos**: User stories "Done" aparecen al final, estados en progreso primero
+- **Marca visual**: Separador claro entre user stories completadas y en progreso
+- **Estado más reciente**: Captura el estado actual correcto de cada user story
 
 ### Exportación de Datos
 - Genera archivos de texto legibles
 - Organiza información de forma estructurada
 - Facilita análisis posterior de datos
+- Exporta historial en formato JSON para integración con otras herramientas
+- Crea reportes específicos para análisis de antigüedad
+- **Reporte resumido**: Clasificación por estado con agrupación mensual
+- **Reporte cronológico**: Lista ordenada por fecha de creación
+- **Reporte detallado**: Historial completo de cambios de estado con fechas
 
 ## 🛠️ Tecnologías Utilizadas
 
@@ -195,6 +368,32 @@ interface Hu {
 }
 ```
 
+### Historial JSON Interface (`historial-json.interface.ts`)
+```typescript
+interface HistorialEntry {
+  created_date: string;
+  modified_date: string;
+  name: string;
+  ref: number;
+  subject: string;
+  status?: string;
+}
+```
+
+### Processed User Story Interface (`process-historial.ts`)
+```typescript
+interface ProcessedUserStory {
+  ref: number;
+  subject: string;
+  name: string;
+  created_date: string;
+  modified_date: string;
+  status?: string;
+  age_in_months: number;
+  is_old: boolean;
+}
+```
+
 ## 🔧 Desarrollo
 
 ### Compilación
@@ -206,7 +405,14 @@ yarn build
 ### Estructura de Desarrollo
 - **Interfaces**: Definiciones de tipos TypeScript
 - **Servicios**: Lógica de comunicación con API
+- **Scripts**: Procesamiento y análisis de datos
 - **Main**: Orquestación del flujo principal
+
+### Flujo de Desarrollo
+1. **Consulta API** → Obtiene datos de Taiga
+2. **Procesamiento** → Genera historial JSON
+3. **Análisis** → Filtra y ordena user stories
+4. **Reportes** → Genera archivos de salida
 
 ## 🐛 Solución de Problemas
 
@@ -245,6 +451,12 @@ Verifica:
 - Que el token sea válido
 - Que el ID del proyecto exista
 
+### Error de Procesamiento
+Si `yarn process` falla:
+- Verifica que existe `src/outputs/json/historial.json`
+- Ejecuta `yarn start` primero para generar el historial
+- Revisa que las fechas en el JSON sean válidas
+
 ## 📝 Licencia
 
 Este proyecto está bajo la licencia MIT.
@@ -262,3 +474,21 @@ Las contribuciones son bienvenidas. Por favor:
 ## 📞 Soporte
 
 Para soporte técnico o preguntas, contacta al equipo de desarrollo o abre un issue en el repositorio.
+
+## 📋 Checklist de Uso
+
+### Configuración Inicial
+- [ ] Variables de entorno configuradas (`.env`)
+- [ ] Dependencias instaladas (`yarn install`)
+- [ ] Certificado SSL configurado (si es necesario)
+
+### Ejecución
+- [ ] Generar historial base (`yarn start`)
+- [ ] Procesar y filtrar datos (`yarn process`)
+- [ ] Revisar archivos generados en `src/outputs/`
+
+### Verificación
+- [ ] Archivos de salida creados correctamente
+- [ ] Carpetas `json/` y `txt/` organizadas
+- [ ] Datos en formato esperado
+- [ ] Estadísticas coherentes en reportes

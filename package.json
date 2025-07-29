@@ -6,7 +6,8 @@
   "scripts": {
     "build": "tsc",
     "start": "yarn build && node dist/main.js",
-    "debug": "yarn build && node dist/debug-requests.js"
+    "debug": "yarn build && node dist/debug-requests.js",
+    "process": "yarn build && node dist/scripts/process-historial.js"
   },
   "dependencies": {
     "dotenv": "^16.4.7",
