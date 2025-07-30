@@ -3,11 +3,21 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "author": "Juan David Morantes Vergara",
+  "description": "Dashboard para análisis de User Stories de Taiga con timeline detallado",
   "scripts": {
     "build": "tsc",
     "start": "yarn build && node dist/main.js",
     "debug": "yarn build && node dist/debug-requests.js",
-    "process": "yarn build && node dist/scripts/process-historial.js"
+    "process": "yarn build && node dist/scripts/process-historial.js",
+    "dashboard": "yarn build && node dist/scripts/generate-dashboard.js",
+    "full-report": "yarn start && yarn process && yarn dashboard",
+    "serve": "npx http-server src/outputs/front -p 8080 -o",
+    "serve-dashboard": "yarn dashboard && yarn serve",
+    "full-pipeline": "yarn start && yarn process && yarn dashboard && yarn serve",
+    "dev-pipeline": "yarn process && yarn dashboard && yarn serve",
+    "update": "yarn start && yarn process && yarn dashboard",
+    "update-and-serve": "yarn update && yarn serve"
   },
   "dependencies": {
     "dotenv": "^16.4.7",

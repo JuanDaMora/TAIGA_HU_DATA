@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle de User Story</title>
+    
+    <!-- Material Design Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS del Dashboard -->
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/hu-detail.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="header-content">
+                <div class="back-button">
+                    <a href="dashboard.html" class="btn-back">
+                        <span class="material-icons">arrow_back</span>
+                        Volver al Dashboard
+                    </a>
+                </div>
+                <h1>📋 Detalle de User Story</h1>
+                <p>Timeline de cambios de estado y información detallada</p>
+            </div>
+        </div>
+
+        <!-- Loading -->
+        <div id="loading" class="loading">
+            <div class="spinner"></div>
+        </div>
+
+        <!-- HU Info Section -->
+        <div id="huInfo" class="hu-info-section" style="display: none;">
+            <div class="hu-header">
+                <div class="hu-title">
+                    <h2 id="huName">Cargando...</h2>
+                    <div class="hu-ref">Ref: <span id="huRef">-</span></div>
+                </div>
+                <div class="hu-status">
+                    <div class="status-badge" id="huStatusBadge">-</div>
+                </div>
+            </div>
+            
+            <div class="hu-stats">
+                <div class="stat-item">
+                    <div class="stat-label">Tiempo Vivo</div>
+                    <div class="stat-value" id="huAge">-</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Fecha Creación</div>
+                    <div class="stat-value" id="huCreated">-</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Última Modificación</div>
+                    <div class="stat-value" id="huModified">-</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Total Cambios</div>
+                    <div class="stat-value" id="huChanges">-</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Timeline Section -->
+        <div id="timelineSection" class="timeline-section" style="display: none;">
+            <div class="section-header">
+                <h3>📅 Timeline de Cambios de Estado</h3>
+                <p>Historial cronológico de todos los cambios de estado</p>
+            </div>
+            
+            <div class="timeline-container">
+                <div class="timeline-wrapper">
+                    <div id="timeline" class="timeline">
+                        <!-- Timeline items will be inserted here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Error Section -->
+        <div id="errorSection" class="error-section" style="display: none;">
+            <div class="error-content">
+                <h3>⚠️ Error</h3>
+                <p id="errorMessage">No se pudo cargar la información de la User Story.</p>
+                <button onclick="window.location.href='dashboard.html'" class="btn-primary">
+                    Volver al Dashboard
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="js/hu-detail.js"></script>
+    
+    <!-- Debug Script -->
+    <script>
+        // Debug: Mostrar información de la URL al cargar
+        console.log('🔍 DEBUG: Página cargada');
+        console.log('🔍 DEBUG: URL completa:', window.location.href);
+        console.log('🔍 DEBUG: Parámetros URL:', window.location.search);
+        
+        // Debug: Verificar si los elementos del DOM existen
+        window.addEventListener('DOMContentLoaded', function() {
+            console.log('🔍 DEBUG: DOM cargado');
+            console.log('🔍 DEBUG: Elemento timeline existe:', !!document.getElementById('timeline'));
+            console.log('🔍 DEBUG: Elemento huInfo existe:', !!document.getElementById('huInfo'));
+            console.log('🔍 DEBUG: Elemento loading existe:', !!document.getElementById('loading'));
+        });
+        
+        // Debug: Función global para inspeccionar datos
+        window.debugTimeline = function() {
+            console.log('🔍 DEBUG: Función debugTimeline llamada');
+            console.log('🔍 DEBUG: huData:', window.huData);
+            console.log('🔍 DEBUG: timelineData:', window.timelineData);
+            console.log('🔍 DEBUG: Elemento timeline HTML:', document.getElementById('timeline').innerHTML);
+        };
+    </script>
+</body>
+</html> 

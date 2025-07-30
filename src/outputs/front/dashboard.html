@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - User Stories Report</title>
+    
+    <!-- Material Design Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- CSS del Dashboard -->
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>📊 Dashboard de User Stories</h1>
+            <p>Análisis detallado del estado y progreso de las User Stories del proyecto</p>
+            <div class="timestamp">Generado el: <span id="currentTimestamp">30/7/2025, 8:06:42</span></div>
+        </div>
+
+        <!-- Loading -->
+        <div id="loading" class="loading">
+            <div class="spinner"></div>
+        </div>
+
+        <!-- Stats Cards -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <h3>Total User Stories</h3>
+                <div class="value" id="totalStories">48</div>
+                <div class="trend">Año actual: <span id="currentYear">2025</span></div>
+            </div>
+            <div class="stat-card">
+                <h3>Completadas</h3>
+                <div class="value" id="completedStories">36</div>
+                <div class="trend" id="completionRate">75.0% completadas</div>
+            </div>
+            <div class="stat-card">
+                <h3>En Progreso</h3>
+                <div class="value" id="inProgressStories">12</div>
+                <div class="trend">Activas</div>
+            </div>
+            <div class="stat-card">
+                <h3>Promedio de Edad</h3>
+                <div class="value" id="avgAge">1.6</div>
+                <div class="trend">meses</div>
+            </div>
+        </div>
+
+        <!-- Status Distribution -->
+        <div class="status-distribution">
+            <div class="status-card done">
+                <h4>✅ Completadas</h4>
+                <div class="count" id="doneCount">36</div>
+            </div>
+            <div class="status-card in-progress">
+                <h4>🔄 En Desarrollo</h4>
+                <div class="count" id="inProgressCount">6</div>
+            </div>
+            <div class="status-card to-test">
+                <h4>🧪 Para Probar</h4>
+                <div class="count" id="toTestCount">3</div>
+            </div>
+            <div class="status-card qa">
+                <h4>🔍 En QA</h4>
+                <div class="count" id="qaCount">1</div>
+            </div>
+            <div class="status-card ready">
+                <h4>🚀 Listas</h4>
+                <div class="count" id="readyCount">2</div>
+            </div>
+        </div>
+
+        <!-- Charts Section -->
+        <div class="charts-section">
+            <div class="chart-container">
+                <h3>📈 Distribución por Estado</h3>
+                <canvas id="statusChart" width="400" height="300"></canvas>
+            </div>
+            <div class="chart-container">
+                <h3>📅 Distribución por Mes</h3>
+                <canvas id="monthChart" width="400" height="300"></canvas>
+            </div>
+        </div>
+
+        <!-- Age Distribution -->
+        <div class="age-distribution">
+            <div class="age-card">
+                <div class="age" id="age0">15</div>
+                <div class="label">0 meses</div>
+            </div>
+            <div class="age-card">
+                <div class="age" id="age1">13</div>
+                <div class="label">1 mes</div>
+            </div>
+            <div class="age-card">
+                <div class="age" id="age2">6</div>
+                <div class="label">2 meses</div>
+            </div>
+            <div class="age-card">
+                <div class="age" id="age3">5</div>
+                <div class="label">3 meses</div>
+            </div>
+            <div class="age-card">
+                <div class="age" id="age4">9</div>
+                <div class="label">4+ meses</div>
+            </div>
+        </div>
+
+        <!-- Search Section -->
+        <div class="search-section">
+            <h3>🔍 Búsqueda</h3>
+            <input type="text" id="searchInput" class="search-input" placeholder="Buscar por título, referencia o estado...">
+        </div>
+
+        <!-- Filters -->
+        <div class="filters">
+            <h3>🔍 Filtros</h3>
+            <div class="filter-group">
+                <select class="filter-select" id="statusFilter">
+                    <option value="">Todos los estados</option>
+                    <option value="Done">Completadas</option>
+                    <option value="Develop in progress">En Desarrollo</option>
+                    <option value="To be tested">Para Probar</option>
+                    <option value="In QA / UX Test">En QA</option>
+                    <option value="Ready for smoke test">Listas</option>
+                </select>
+                <select class="filter-select" id="ageFilter">
+                    <option value="">Todas las edades</option>
+                    <option value="0">0 meses</option>
+                    <option value="1">1 mes</option>
+                    <option value="2">2 meses</option>
+                    <option value="3">3 meses</option>
+                    <option value="4">4+ meses</option>
+                </select>
+                <select class="filter-select" id="monthFilter">
+                    <option value="">Todos los meses</option>
+                    <option value="3">Marzo 2025</option>
+                    <option value="4">Abril 2025</option>
+                    <option value="5">Mayo 2025</option>
+                    <option value="6">Junio 2025</option>
+                    <option value="7">Julio 2025</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Export Section -->
+        <div class="export-section">
+            <h3>📤 Exportar Datos</h3>
+            <div class="export-buttons">
+                <button class="export-btn" id="exportCSV">📊 Exportar a CSV</button>
+                <button class="export-btn" id="exportJSON">📄 Exportar a JSON</button>
+                <button class="export-btn" id="clearFilters">🔄 Limpiar Filtros</button>
+            </div>
+        </div>
+
+        <!-- User Stories Table -->
+        <div class="table-container">
+            <div class="table-header">
+                <h3>📋 Lista de User Stories (<span id="resultsCount">-</span> resultados)</h3>
+            </div>
+            <table class="user-stories-table" id="userStoriesTable">
+                <thead>
+                    <tr>
+                        <th>Ref</th>
+                        <th>Título</th>
+                        <th>Estado</th>
+                        <th>Fecha Creación</th>
+                        <th>Última Modificación</th>
+                        <th>Edad (meses)</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    <tr>
+                        <td colspan="6">
+                            <div class="loading">
+                                <div class="spinner"></div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Footer -->
+        <div class="text-center text-muted mt-20 mb-20">
+            <p>Dashboard generado automáticamente desde los datos de Taiga</p>
+            <p>Última actualización: <span id="lastUpdate">30/7/2025, 8:06:42</span></p>
+            <div class="update-info">
+                <p><strong>💡 Para actualizar datos:</strong> Ejecuta <code>yarn update</code> en la terminal</p>
+                <p><small>Los datos se actualizan solo cuando ejecutas el pipeline completo</small></p>
+            </div>
+        </div>
+
+        <!-- Author Badge - Solo visible al final -->
+        <div class="author-badge-container">
+            <div class="author-badge">Desarrollado por Juan David Morantes Vergara</div>
+        </div>
+
+        <!-- HU Detail Section (Hidden by default) -->
+        <div id="huDetailSection" class="hu-detail-section" style="display: none;">
+            <div class="detail-header">
+                <button id="backToDashboard" class="btn-back">
+                    <span class="material-icons">arrow_back</span>
+                    Volver al Dashboard
+                </button>
+                <h2>📋 Detalle de User Story</h2>
+            </div>
+            
+            <div id="detailLoading" class="loading">
+                <div class="spinner"></div>
+            </div>
+            
+            <div id="huInfo" class="hu-info-section" style="display: none;">
+                <div class="hu-header">
+                    <div class="hu-title">
+                        <h2 id="huName">Cargando...</h2>
+                        <div class="hu-ref">Ref: <span id="huRef">-</span></div>
+                    </div>
+                    <div class="hu-status">
+                        <div class="status-badge" id="huStatusBadge">-</div>
+                    </div>
+                </div>
+                <div class="hu-stats">
+                    <div class="stat-item">
+                        <div class="stat-label">Tiempo Vivo</div>
+                        <div class="stat-value" id="huAge">-</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-label">Fecha Creación</div>
+                        <div class="stat-value" id="huCreated">-</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-label">Última Modificación</div>
+                        <div class="stat-value" id="huModified">-</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-label">Total Cambios</div>
+                        <div class="stat-value" id="huChanges">-</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="timelineSection" class="timeline-section" style="display: none;">
+                <div class="section-header">
+                    <h3>📅 Timeline de Cambios de Estado</h3>
+                    <p>Historial cronológico de todos los cambios de estado</p>
+                </div>
+                <div class="timeline-container">
+                    <div class="timeline-wrapper">
+                        <div id="timeline" class="timeline">
+                            <!-- Timeline items will be inserted here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="detailErrorSection" class="error-section" style="display: none;">
+                <div class="error-content">
+                    <h3>⚠️ Error</h3>
+                    <p id="detailErrorMessage">No se pudo cargar la información de la User Story.</p>
+                    <button onclick="showDashboard()" class="btn-primary">
+                        Volver al Dashboard
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript del Dashboard -->
+    <script src="js/dashboard.js"></script>
+</body>
+</html> 

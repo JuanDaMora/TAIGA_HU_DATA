@@ -1,0 +1,488 @@
+{
+  "current_year": 2025,
+  "total_user_stories": 48,
+  "old_user_stories": [],
+  "recent_user_stories": [
+    {
+      "ref": 905,
+      "subject": "Implementación de Ejemplos de Consumo de Endpoints con API Key",
+      "name": "905 - Implementación de Ejemplos de Consumo de Endpoints con API Key",
+      "created_date": "2025-03-14",
+      "modified_date": "2025-03-14",
+      "status": "Done",
+      "age_in_months": 4,
+      "is_old": false
+    },
+    {
+      "ref": 896,
+      "subject": "Corrección de bug de autoregistro de Proveedores",
+      "name": "896 - Corrección de bug de autoregistro de Proveedores",
+      "created_date": "2025-03-17",
+      "modified_date": "2025-03-17",
+      "status": "Done",
+      "age_in_months": 4,
+      "is_old": false
+    },
+    {
+      "ref": 901,
+      "subject": "Menus cruzados sin repetición (Mejora en Menús Cruzados con Visualización Exclusiva en el Módulo Destino)",
+      "name": "901 - Menus cruzados sin repetición (Mejora en Menús Cruzados con Visualización Exclusiva en el Módulo Destino)",
+      "created_date": "2025-03-21",
+      "modified_date": "2025-03-21",
+      "status": "Done",
+      "age_in_months": 4,
+      "is_old": false
+    },
+    {
+      "ref": 900,
+      "subject": "Corrección y mejora en los buscadores del SIA (pantalla de losetas y side menu)",
+      "name": "900 - Corrección y mejora en los buscadores del SIA (pantalla de losetas y side menu)",
+      "created_date": "2025-03-21",
+      "modified_date": "2025-03-21",
+      "status": "Done",
+      "age_in_months": 4,
+      "is_old": false
+    },
+    {
+      "ref": 897,
+      "subject": "Corrección y Mejora en bug  del Proceso de Actualización de Extensión Telefónica",
+      "name": "897 - Corrección y Mejora en bug  del Proceso de Actualización de Extensión Telefónica",
+      "created_date": "2025-03-21",
+      "modified_date": "2025-03-26",
+      "status": "Done",
+      "age_in_months": 4,
+      "is_old": false
+    },
+    {
+      "ref": 895,
+      "subject": "Integración de Gestión de Equipos con Informix",
+      "name": "895 - Integración de Gestión de Equipos con Informix",
+      "created_date": "2025-03-21",
+      "modified_date": "2025-03-21",
+      "status": "Done",
+      "age_in_months": 4,
+      "is_old": false
+    },
+    {
+      "ref": 898,
+      "subject": "Ajustes y Correcciones en el Directorio UIS",
+      "name": "898 - Ajustes y Correcciones en el Directorio UIS",
+      "created_date": "2025-03-25",
+      "modified_date": "2025-03-25",
+      "status": "Done",
+      "age_in_months": 4,
+      "is_old": false
+    },
+    {
+      "ref": 899,
+      "subject": "Corrección en la generación de usernames para excluir la letra \"ñ\"",
+      "name": "899 - Corrección en la generación de usernames para excluir la letra \"ñ\"",
+      "created_date": "2025-03-26",
+      "modified_date": "2025-03-26",
+      "status": "Done",
+      "age_in_months": 4,
+      "is_old": false
+    },
+    {
+      "ref": 970,
+      "subject": "Estandarización y Mejora del Flujo de Desarrollo - migración a ci/cd 2 ramas (nueva metodología)",
+      "name": "970 - Estandarización y Mejora del Flujo de Desarrollo - migración a ci/cd 2 ramas (nueva metodología)",
+      "created_date": "2025-03-28",
+      "modified_date": "2025-04-01",
+      "status": "Develop in progress",
+      "age_in_months": 4,
+      "is_old": false
+    },
+    {
+      "ref": 964,
+      "subject": "Diseño de Modelo de Base de Datos para Evaluación Docente",
+      "name": "964 - Diseño de Modelo de Base de Datos para Evaluación Docente",
+      "created_date": "2025-04-03",
+      "modified_date": "2025-04-25",
+      "status": "Done",
+      "age_in_months": 3,
+      "is_old": false
+    },
+    {
+      "ref": 907,
+      "subject": "Rediseño de Pantalla de Dominios de la Información para Administrador (pmv 30%)",
+      "name": "907 - Rediseño de Pantalla de Dominios de la Información para Administrador (pmv 30%)",
+      "created_date": "2025-04-11",
+      "modified_date": "2025-04-11",
+      "status": "Done",
+      "age_in_months": 3,
+      "is_old": false
+    },
+    {
+      "ref": 972,
+      "subject": "Scraping para Documentos de Identidad (cc) - spike e integración",
+      "name": "972 - Scraping para Documentos de Identidad (cc) - spike e integración",
+      "created_date": "2025-04-22",
+      "modified_date": "2025-04-22",
+      "status": "Done",
+      "age_in_months": 3,
+      "is_old": false
+    },
+    {
+      "ref": 904,
+      "subject": "Creación y Configuración de Repositorio para WebSockets",
+      "name": "904 - Creación y Configuración de Repositorio para WebSockets",
+      "created_date": "2025-04-24",
+      "modified_date": "2025-04-24",
+      "status": "Done",
+      "age_in_months": 3,
+      "is_old": false
+    },
+    {
+      "ref": 971,
+      "subject": "Rediseño y Optimización del Autoregistro (30%)",
+      "name": "971 - Rediseño y Optimización del Autoregistro (30%)",
+      "created_date": "2025-04-25",
+      "modified_date": "2025-04-25",
+      "status": "Done",
+      "age_in_months": 3,
+      "is_old": false
+    },
+    {
+      "ref": 908,
+      "subject": "Corrección de Bug en AutoRegistroServiceImpl para profesores con multiple identificación en integración/integration ifx",
+      "name": "908 - Corrección de Bug en AutoRegistroServiceImpl para profesores con multiple identificación en integración/integration ifx",
+      "created_date": "2025-05-02",
+      "modified_date": "2025-05-02",
+      "status": "Done",
+      "age_in_months": 2,
+      "is_old": false
+    },
+    {
+      "ref": 1105,
+      "subject": "Ajuste post migraciones a 2 ramas, docker, jdk 21",
+      "name": "1105 - Ajuste post migraciones a 2 ramas, docker, jdk 21",
+      "created_date": "2025-05-21",
+      "modified_date": "2025-05-21",
+      "status": "Develop in progress",
+      "age_in_months": 2,
+      "is_old": false
+    },
+    {
+      "ref": 1023,
+      "subject": "Integración de accesos institucionales en top menú, transición visual a UISARD y mejoras en diseño responsivo",
+      "name": "1023 - Integración de accesos institucionales en top menú, transición visual a UISARD y mejoras en diseño responsivo",
+      "created_date": "2025-05-28",
+      "modified_date": "2025-05-28",
+      "status": "Done",
+      "age_in_months": 2,
+      "is_old": false
+    },
+    {
+      "ref": 1104,
+      "subject": "Problemas Layout",
+      "name": "1104 - Problemas Layout",
+      "created_date": "2025-05-30",
+      "modified_date": "2025-05-30",
+      "status": "Done",
+      "age_in_months": 2,
+      "is_old": false
+    },
+    {
+      "ref": 966,
+      "subject": "Autoevaluación de Docentes Ocasionales y Cátedra",
+      "name": "966 - Autoevaluación de Docentes Ocasionales y Cátedra",
+      "created_date": "2025-06-01",
+      "modified_date": "2025-06-01",
+      "status": "Done",
+      "age_in_months": 2,
+      "is_old": false
+    },
+    {
+      "ref": 967,
+      "subject": "Evaluación de Docentes por Directores de Escuela y Vicerrectoría",
+      "name": "967 - Evaluación de Docentes por Directores de Escuela y Vicerrectoría",
+      "created_date": "2025-06-01",
+      "modified_date": "2025-06-01",
+      "status": "Done",
+      "age_in_months": 2,
+      "is_old": false
+    },
+    {
+      "ref": 1100,
+      "subject": "Arreglar los múltiples hilos que Feing no reconozca en su llamado  (específicamente el token y el id usuario) 1 a 1 si funciona",
+      "name": "1100 - Arreglar los múltiples hilos que Feing no reconozca en su llamado  (específicamente el token y el id usuario) 1 a 1 si funciona",
+      "created_date": "2025-06-05",
+      "modified_date": "2025-07-16",
+      "status": "Develop in progress",
+      "age_in_months": 1,
+      "is_old": false
+    },
+    {
+      "ref": 1070,
+      "subject": "Culminación Rediseño del Autoregistro y Login (30%pmv)",
+      "name": "1070 - Culminación Rediseño del Autoregistro y Login (30%pmv)",
+      "created_date": "2025-06-06",
+      "modified_date": "2025-06-06",
+      "status": "Done",
+      "age_in_months": 1,
+      "is_old": false
+    },
+    {
+      "ref": 1069,
+      "subject": "Culminación  Rediseño de la Pantalla de Dominios  de la Información para Administrador (pmv 30%)",
+      "name": "1069 - Culminación  Rediseño de la Pantalla de Dominios  de la Información para Administrador (pmv 30%)",
+      "created_date": "2025-06-06",
+      "modified_date": "2025-06-06",
+      "status": "Done",
+      "age_in_months": 1,
+      "is_old": false
+    },
+    {
+      "ref": 1036,
+      "subject": "Directorios cambios pequeños - códigos y demás  - directorio uis v2",
+      "name": "1036 - Directorios cambios pequeños - códigos y demás  - directorio uis v2",
+      "created_date": "2025-06-09",
+      "modified_date": "2025-06-09",
+      "status": "Done",
+      "age_in_months": 1,
+      "is_old": false
+    },
+    {
+      "ref": 1101,
+      "subject": "Gestión Integral de Usuarios Diversos en la Plataforma SIA",
+      "name": "1101 - Gestión Integral de Usuarios Diversos en la Plataforma SIA",
+      "created_date": "2025-06-09",
+      "modified_date": "2025-06-09",
+      "status": "Done",
+      "age_in_months": 1,
+      "is_old": false
+    },
+    {
+      "ref": 1102,
+      "subject": "Inclusión de Aspirantes Académicos en Envío de Notificaciones",
+      "name": "1102 - Inclusión de Aspirantes Académicos en Envío de Notificaciones",
+      "created_date": "2025-06-10",
+      "modified_date": "2025-06-10",
+      "status": "Done",
+      "age_in_months": 1,
+      "is_old": false
+    },
+    {
+      "ref": 1103,
+      "subject": "Vulnerabilidad al cambiar la foto de perfil",
+      "name": "1103 - Vulnerabilidad al cambiar la foto de perfil",
+      "created_date": "2025-06-13",
+      "modified_date": "2025-06-13",
+      "status": "Done",
+      "age_in_months": 1,
+      "is_old": false
+    },
+    {
+      "ref": 1035,
+      "subject": "V3 - NEW - Rediseño Directorios UIS",
+      "name": "1035 - V3 - NEW - Rediseño Directorios UIS",
+      "created_date": "2025-06-17",
+      "modified_date": "2025-06-17",
+      "status": "Done",
+      "age_in_months": 1,
+      "is_old": false
+    },
+    {
+      "ref": 965,
+      "subject": "Evaluación de Docentes por Estudiantes",
+      "name": "965 - Evaluación de Docentes por Estudiantes",
+      "created_date": "2025-06-17",
+      "modified_date": "2025-06-17",
+      "status": "Done",
+      "age_in_months": 1,
+      "is_old": false
+    },
+    {
+      "ref": 968,
+      "subject": "Acceso a Evaluaciones Mediante Enlace Único(por pesona)",
+      "name": "968 - Acceso a Evaluaciones Mediante Enlace Único(por pesona)",
+      "created_date": "2025-06-18",
+      "modified_date": "2025-06-18",
+      "status": "Done",
+      "age_in_months": 1,
+      "is_old": false
+    },
+    {
+      "ref": 1196,
+      "subject": "Gestión de Información de Unidad y Miembros-Jefe de Unidad - Directorio UIS",
+      "name": "1196 - Gestión de Información de Unidad y Miembros-Jefe de Unidad - Directorio UIS",
+      "created_date": "2025-06-27",
+      "modified_date": "2025-07-24",
+      "status": "Develop in progress",
+      "age_in_months": 1,
+      "is_old": false
+    },
+    {
+      "ref": 1099,
+      "subject": "Roles_usuario_dominios(ORACLE) - revisar posibilidad de integración con INFORMIX",
+      "name": "1099 - Roles_usuario_dominios(ORACLE) - revisar posibilidad de integración con INFORMIX",
+      "created_date": "2025-06-27",
+      "modified_date": "2025-06-27",
+      "status": "Done",
+      "age_in_months": 1,
+      "is_old": false
+    },
+    {
+      "ref": 1189,
+      "subject": "Consumo Asíncrono de Foto UISARD",
+      "name": "1189 - Consumo Asíncrono de Foto UISARD",
+      "created_date": "2025-07-01",
+      "modified_date": "2025-07-01",
+      "status": "Done",
+      "age_in_months": 1,
+      "is_old": false
+    },
+    {
+      "ref": 1028,
+      "subject": "HU: Componentes públicos de pdf, por url id, para las rutas de alfresco autorizadas",
+      "name": "1028 - HU: Componentes públicos de pdf, por url id, para las rutas de alfresco autorizadas",
+      "created_date": "2025-07-07",
+      "modified_date": "2025-07-07",
+      "status": "Done",
+      "age_in_months": 0,
+      "is_old": false
+    },
+    {
+      "ref": 1163,
+      "subject": "Soporte Operations UISARD",
+      "name": "1163 - Soporte Operations UISARD",
+      "created_date": "2025-07-16",
+      "modified_date": "2025-07-16",
+      "status": "Done",
+      "age_in_months": 0,
+      "is_old": false
+    },
+    {
+      "ref": 1231,
+      "subject": "Reportes evaluación docente para vicerrector/decano",
+      "name": "1231 - Reportes evaluación docente para vicerrector/decano",
+      "created_date": "2025-07-17",
+      "modified_date": "2025-07-17",
+      "status": "Develop in progress",
+      "age_in_months": 0,
+      "is_old": false
+    },
+    {
+      "ref": 1106,
+      "subject": "Ajuste de mantenimiento por mal funcionamiento o errores encontrados",
+      "name": "1106 - Ajuste de mantenimiento por mal funcionamiento o errores encontrados",
+      "created_date": "2025-07-18",
+      "modified_date": "2025-07-18",
+      "status": "Done",
+      "age_in_months": 0,
+      "is_old": false
+    },
+    {
+      "ref": 1187,
+      "subject": "Reportes de Evaluación Docente - Rol Director de Escuela",
+      "name": "1187 - Reportes de Evaluación Docente - Rol Director de Escuela",
+      "created_date": "2025-07-21",
+      "modified_date": "2025-07-21",
+      "status": "To be tested",
+      "age_in_months": 0,
+      "is_old": false
+    },
+    {
+      "ref": 1155,
+      "subject": "Ajuste del Autoregistro para Planta Temporal (Revisar)",
+      "name": "1155 - Ajuste del Autoregistro para Planta Temporal (Revisar)",
+      "created_date": "2025-07-22",
+      "modified_date": "2025-07-22",
+      "status": "Done",
+      "age_in_months": 0,
+      "is_old": false
+    },
+    {
+      "ref": 1141,
+      "subject": "Evaluación docente: mejoras post reuniones con cliente",
+      "name": "1141 - Evaluación docente: mejoras post reuniones con cliente",
+      "created_date": "2025-07-23",
+      "modified_date": "2025-07-23",
+      "status": "Done",
+      "age_in_months": 0,
+      "is_old": false
+    },
+    {
+      "ref": 1145,
+      "subject": "Generación y descarga de reportes de evaluación docente (reportes de la evalaución estudiante-profesor y/o autoevalaución) - descargado por profesor",
+      "name": "1145 - Generación y descarga de reportes de evaluación docente (reportes de la evalaución estudiante-profesor y/o autoevalaución) - descargado por profesor",
+      "created_date": "2025-07-23",
+      "modified_date": "2025-07-23",
+      "status": "In QA / UX Test",
+      "age_in_months": 0,
+      "is_old": false
+    },
+    {
+      "ref": 1191,
+      "subject": "Pruebas Finales Autoregistro Paralelo v0 a v1",
+      "name": "1191 - Pruebas Finales Autoregistro Paralelo v0 a v1",
+      "created_date": "2025-07-24",
+      "modified_date": "2025-07-24",
+      "status": "To be tested",
+      "age_in_months": 0,
+      "is_old": false
+    },
+    {
+      "ref": 1164,
+      "subject": "Revisión autoregistro para otra población",
+      "name": "1164 - Revisión autoregistro para otra población",
+      "created_date": "2025-07-24",
+      "modified_date": "2025-07-24",
+      "status": "To be tested",
+      "age_in_months": 0,
+      "is_old": false
+    },
+    {
+      "ref": 1188,
+      "subject": "Atención de Tickets y Soporte UISARD",
+      "name": "1188 - Atención de Tickets y Soporte UISARD",
+      "created_date": "2025-07-25",
+      "modified_date": "2025-07-25",
+      "status": "Done",
+      "age_in_months": 0,
+      "is_old": false
+    },
+    {
+      "ref": 906,
+      "subject": "Ajuste en Endpoints para Sincronización de Estudiantes - ajustes varios pantallas de logueo",
+      "name": "906 - Ajuste en Endpoints para Sincronización de Estudiantes - ajustes varios pantallas de logueo",
+      "created_date": "2025-07-25",
+      "modified_date": "2025-07-25",
+      "status": "Done",
+      "age_in_months": 0,
+      "is_old": false
+    },
+    {
+      "ref": 1190,
+      "subject": "Revisar traslado de estudiantes de informix a Oracle",
+      "name": "1190 - Revisar traslado de estudiantes de informix a Oracle",
+      "created_date": "2025-07-28",
+      "modified_date": "2025-07-28",
+      "status": "Ready for smoke test",
+      "age_in_months": 0,
+      "is_old": false
+    },
+    {
+      "ref": 1162,
+      "subject": "Corrección de username que ya tienen en informix",
+      "name": "1162 - Corrección de username que ya tienen en informix",
+      "created_date": "2025-07-28",
+      "modified_date": "2025-07-28",
+      "status": "Ready for smoke test",
+      "age_in_months": 0,
+      "is_old": false
+    },
+    {
+      "ref": 903,
+      "subject": "Integración - pruebas - mailUP/mailchimp con notificaciones UIS",
+      "name": "903 - Integración - pruebas - mailUP/mailchimp con notificaciones UIS",
+      "created_date": "2025-07-28",
+      "modified_date": "2025-07-28",
+      "status": "Develop in progress",
+      "age_in_months": 0,
+      "is_old": false
+    }
+  ],
+  "ignored_previous_year": 0
+}
