@@ -1,5 +1,7 @@
 import * as fs from 'fs';
 import * as path from 'path';
+import { FILE_PATHS } from '../constants';
+import { ensureDirectoryExists } from '../utils';
 
 interface UserStory {
     ref: number;
@@ -101,7 +103,7 @@ function insertDataIntoHTML(htmlContent: string, data: UserStoriesReport): strin
 function main() {
     try {
         // Leer el archivo JSON de user stories
-        const jsonPath = path.join(__dirname, '..', '..', 'src', 'outputs', 'json', 'user_stories_report.json');
+        const jsonPath = path.join(process.cwd(), FILE_PATHS.JSON_OUTPUT, 'user_stories_report.json');
         
         if (!fs.existsSync(jsonPath)) {
             console.error('❌ Error: No se encontró el archivo user_stories_report.json');
@@ -113,25 +115,19 @@ function main() {
         const data: UserStoriesReport = JSON.parse(jsonData);
 
         // Crear directorio front si no existe
-        const frontDir = path.join(__dirname, '..', '..', 'src', 'outputs', 'front');
-        if (!fs.existsSync(frontDir)) {
-            fs.mkdirSync(frontDir, { recursive: true });
-        }
+        const frontDir = path.join(process.cwd(), FILE_PATHS.FRONT_OUTPUT);
+        ensureDirectoryExists(frontDir);
 
         // Crear subdirectorios
         const cssDir = path.join(frontDir, 'css');
         const jsDir = path.join(frontDir, 'js');
         
-        if (!fs.existsSync(cssDir)) {
-            fs.mkdirSync(cssDir, { recursive: true });
-        }
-        if (!fs.existsSync(jsDir)) {
-            fs.mkdirSync(jsDir, { recursive: true });
-        }
+        ensureDirectoryExists(cssDir);
+        ensureDirectoryExists(jsDir);
 
         // Leer archivos CSS y JS
-        const cssPath = path.join(__dirname, '..', '..', 'src', 'outputs', 'front', 'css', 'dashboard.css');
-        const jsPath = path.join(__dirname, '..', '..', 'src', 'outputs', 'front', 'js', 'dashboard.js');
+        const cssPath = path.join(frontDir, 'css', 'dashboard.css');
+        const jsPath = path.join(frontDir, 'js', 'dashboard.js');
         const htmlPath = path.join(frontDir, 'dashboard.html');
 
         // Verificar si existen los archivos CSS y JS
@@ -148,7 +144,7 @@ function main() {
         }
 
         // Leer el HTML base
-        const htmlBasePath = path.join(__dirname, '..', '..', 'src', 'outputs', 'front', 'dashboard.html');
+        const htmlBasePath = path.join(frontDir, 'dashboard.html');
         if (!fs.existsSync(htmlBasePath)) {
             console.error('❌ Error: No se encontró el archivo HTML base');
             console.log('💡 Asegúrate de que existe: src/outputs/front/dashboard.html');
@@ -167,17 +163,10 @@ function main() {
         const jsonCopyPath = path.join(frontDir, 'user_stories_report.json');
         fs.writeFileSync(jsonCopyPath, JSON.stringify(data, null, 2), 'utf8');
 
-        // Mover complete_timeline.json a la carpeta front para acceso web (solo si no existe)
-        const timelineSourcePath = path.join(__dirname, '..', '..', 'src', 'outputs', 'json', 'complete_timeline.json');
-        const timelineDestPath = path.join(frontDir, 'complete_timeline.json');
-        
+        // Verificar que complete_timeline.json existe (pero no copiarlo)
+        const timelineSourcePath = path.join(process.cwd(), FILE_PATHS.JSON_OUTPUT, 'complete_timeline.json');
         if (fs.existsSync(timelineSourcePath)) {
-            if (!fs.existsSync(timelineDestPath)) {
-                fs.copyFileSync(timelineSourcePath, timelineDestPath);
-                console.log(`📁 Timeline completo movido a: ${timelineDestPath}`);
-            } else {
-                console.log(`📁 Timeline completo ya existe en: ${timelineDestPath}`);
-            }
+            console.log(`📁 Timeline completo disponible en: ${timelineSourcePath}`);
         } else {
             console.log('⚠️ Timeline completo no encontrado, se usará timeline básico');
         }

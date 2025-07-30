@@ -1,6 +1,8 @@
 import * as fs from 'fs';
 import * as path from 'path';
-import { HistorialEntry } from '../interfaces/historial-json.interface';
+import { HistorialEntry } from '../types';
+import { FILE_PATHS } from '../constants';
+import { ensureDirectoryExists } from '../utils';
 
 interface ProcessedUserStory {
   ref: number;
@@ -164,7 +166,6 @@ function processHistorial(historialData: HistorialEntry[]): ProcessedHistorial {
 
 /**
  * Genera el timeline completo con todos los cambios de estado
- * Filtra estados repetidos consecutivos, manteniendo solo el más reciente
  */
 function generateCompleteTimeline(historialData: HistorialEntry[]): CompleteTimeline {
   console.log('🔍 [TIMELINE] Generando timeline completo...');
@@ -191,37 +192,7 @@ function generateCompleteTimeline(historialData: HistorialEntry[]): CompleteTime
       new Date(a.modified_date).getTime() - new Date(b.modified_date).getTime()
     );
     
-    // Filtrar estados repetidos consecutivos, manteniendo solo el más reciente
-    const filteredEntries: HistorialEntry[] = [];
-    const seenStates = new Map<string, HistorialEntry>();
-    
-    sortedEntries.forEach(entry => {
-      const status = entry.status || 'Sin Estado';
-      
-      // Si ya hemos visto este estado, actualizar con la entrada más reciente
-      if (seenStates.has(status)) {
-        const existingEntry = seenStates.get(status)!;
-        const existingDate = new Date(existingEntry.modified_date);
-        const currentDate = new Date(entry.modified_date);
-        
-        // Si la entrada actual es más reciente, reemplazar
-        if (currentDate > existingDate) {
-          seenStates.set(status, entry);
-        }
-      } else {
-        // Si es un estado nuevo, agregarlo
-        seenStates.set(status, entry);
-      }
-    });
-    
-    // Convertir el mapa de estados únicos a array y ordenar por fecha
-    const uniqueEntries = Array.from(seenStates.values()).sort((a, b) => 
-      new Date(a.modified_date).getTime() - new Date(b.modified_date).getTime()
-    );
-    
-    console.log(`📋 [TIMELINE] HU ${ref}: ${sortedEntries.length} cambios originales → ${uniqueEntries.length} cambios únicos`);
-    
-    const stateChanges: StateChange[] = uniqueEntries.map((entry, index) => ({
+    const stateChanges: StateChange[] = sortedEntries.map((entry, index) => ({
       ref: entry.ref,
       subject: entry.subject,
       status: entry.status || 'Sin Estado',
@@ -229,7 +200,7 @@ function generateCompleteTimeline(historialData: HistorialEntry[]): CompleteTime
       created_date: entry.created_date,
       change_id: index + 1,
       is_first: index === 0,
-      is_last: index === uniqueEntries.length - 1
+      is_last: index === sortedEntries.length - 1
     }));
     
     changesByRefObj[ref] = stateChanges;
@@ -243,7 +214,7 @@ function generateCompleteTimeline(historialData: HistorialEntry[]): CompleteTime
     all_changes: allChanges
   };
   
-  console.log(`✅ [TIMELINE] Timeline generado: ${completeTimeline.total_changes} cambios únicos en ${completeTimeline.total_user_stories} HUs`);
+  console.log(`✅ [TIMELINE] Timeline generado: ${completeTimeline.total_changes} cambios en ${completeTimeline.total_user_stories} HUs`);
   
   return completeTimeline;
 }
@@ -465,7 +436,7 @@ async function main() {
     console.log('🔍 [PROCESS] Iniciando procesamiento del historial...');
 
     // Verificar que existe el archivo de historial
-    const historialPath = path.join(process.cwd(), 'src', 'outputs', 'json', 'historial.json');
+    const historialPath = path.join(process.cwd(), FILE_PATHS.JSON_OUTPUT, 'historial.json');
     
     if (!fs.existsSync(historialPath)) {
       throw new Error(`No se encontró el archivo historial.json en ${historialPath}`);
@@ -493,17 +464,13 @@ async function main() {
     console.log(`- Total cambios de estado: ${completeTimeline.total_changes}`);
 
     // Generar reportes
-    const outputDir = path.join(process.cwd(), 'src', 'outputs');
-    const jsonDir = path.join(outputDir, 'json');
-    const txtDir = path.join(outputDir, 'txt');
+    const outputDir = path.join(process.cwd(), FILE_PATHS.OUTPUTS);
+    const jsonDir = path.join(process.cwd(), FILE_PATHS.JSON_OUTPUT);
+    const txtDir = path.join(process.cwd(), FILE_PATHS.TXT_OUTPUT);
     
     // Crear carpetas si no existen
-    if (!fs.existsSync(jsonDir)) {
-      fs.mkdirSync(jsonDir, { recursive: true });
-    }
-    if (!fs.existsSync(txtDir)) {
-      fs.mkdirSync(txtDir, { recursive: true });
-    }
+    ensureDirectoryExists(jsonDir);
+    ensureDirectoryExists(txtDir);
     
     generateReports(processedData, jsonDir, txtDir);
     

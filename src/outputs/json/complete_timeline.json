@@ -1,5 +1,5 @@
 {
-  "total_changes": 228,
+  "total_changes": 275,
   "total_user_stories": 48,
   "changes_by_ref": {
     "895": [
@@ -98,10 +98,20 @@
       {
         "ref": 896,
         "subject": "Corrección de bug de autoregistro de Proveedores",
+        "status": "Done",
+        "modified_date": "2025-03-17",
+        "created_date": "2025-03-07",
+        "change_id": 4,
+        "is_first": false,
+        "is_last": false
+      },
+      {
+        "ref": 896,
+        "subject": "Corrección de bug de autoregistro de Proveedores",
         "status": "Develop in progress",
         "modified_date": "2025-03-17",
         "created_date": "2025-02-25",
-        "change_id": 4,
+        "change_id": 5,
         "is_first": false,
         "is_last": false
       },
@@ -111,7 +121,7 @@
         "status": "Open / Ready for sprint",
         "modified_date": "2025-03-17",
         "created_date": "2025-02-21",
-        "change_id": 5,
+        "change_id": 6,
         "is_first": false,
         "is_last": true
       }
@@ -165,6 +175,16 @@
         "created_date": "2025-02-24",
         "change_id": 5,
         "is_first": false,
+        "is_last": false
+      },
+      {
+        "ref": 897,
+        "subject": "Corrección y Mejora en bug  del Proceso de Actualización de Extensión Telefónica",
+        "status": "Develop in progress",
+        "modified_date": "2025-03-26",
+        "created_date": "2025-02-24",
+        "change_id": 6,
+        "is_first": false,
         "is_last": true
       }
     ],
@@ -202,10 +222,30 @@
       {
         "ref": 898,
         "subject": "Ajustes y Correcciones en el Directorio UIS",
+        "status": "Done",
+        "modified_date": "2025-03-25",
+        "created_date": "2025-03-18",
+        "change_id": 4,
+        "is_first": false,
+        "is_last": false
+      },
+      {
+        "ref": 898,
+        "subject": "Ajustes y Correcciones en el Directorio UIS",
+        "status": "QA-tests failed",
+        "modified_date": "2025-03-25",
+        "created_date": "2025-03-14",
+        "change_id": 5,
+        "is_first": false,
+        "is_last": false
+      },
+      {
+        "ref": 898,
+        "subject": "Ajustes y Correcciones en el Directorio UIS",
         "status": "In QA / UX Test",
         "modified_date": "2025-03-25",
         "created_date": "2025-03-07",
-        "change_id": 4,
+        "change_id": 6,
         "is_first": false,
         "is_last": false
       },
@@ -215,7 +255,7 @@
         "status": "Develop in progress",
         "modified_date": "2025-03-25",
         "created_date": "2025-03-05",
-        "change_id": 5,
+        "change_id": 7,
         "is_first": false,
         "is_last": false
       },
@@ -225,7 +265,7 @@
         "status": "Open / Ready for sprint",
         "modified_date": "2025-03-25",
         "created_date": "2025-02-24",
-        "change_id": 6,
+        "change_id": 8,
         "is_first": false,
         "is_last": true
       }
@@ -286,10 +326,30 @@
       {
         "ref": 900,
         "subject": "Corrección y mejora en los buscadores del SIA (pantalla de losetas y side menu)",
+        "status": "Done",
+        "modified_date": "2025-03-21",
+        "created_date": "2025-03-21",
+        "change_id": 3,
+        "is_first": false,
+        "is_last": false
+      },
+      {
+        "ref": 900,
+        "subject": "Corrección y mejora en los buscadores del SIA (pantalla de losetas y side menu)",
+        "status": "QA-tests failed",
+        "modified_date": "2025-03-21",
+        "created_date": "2025-03-20",
+        "change_id": 4,
+        "is_first": false,
+        "is_last": false
+      },
+      {
+        "ref": 900,
+        "subject": "Corrección y mejora en los buscadores del SIA (pantalla de losetas y side menu)",
         "status": "In QA / UX Test",
         "modified_date": "2025-03-21",
         "created_date": "2025-03-19",
-        "change_id": 3,
+        "change_id": 5,
         "is_first": false,
         "is_last": false
       },
@@ -299,7 +359,7 @@
         "status": "To be tested",
         "modified_date": "2025-03-21",
         "created_date": "2025-03-11",
-        "change_id": 4,
+        "change_id": 6,
         "is_first": false,
         "is_last": false
       },
@@ -309,7 +369,7 @@
         "status": "Ready for smoke test",
         "modified_date": "2025-03-21",
         "created_date": "2025-03-11",
-        "change_id": 5,
+        "change_id": 7,
         "is_first": false,
         "is_last": false
       },
@@ -319,7 +379,7 @@
         "status": "Develop in progress",
         "modified_date": "2025-03-21",
         "created_date": "2025-03-06",
-        "change_id": 6,
+        "change_id": 8,
         "is_first": false,
         "is_last": false
       },
@@ -329,7 +389,7 @@
         "status": "Open / Ready for sprint",
         "modified_date": "2025-03-21",
         "created_date": "2025-02-25",
-        "change_id": 7,
+        "change_id": 9,
         "is_first": false,
         "is_last": true
       }
@@ -430,10 +490,20 @@
       {
         "ref": 903,
         "subject": "Integración - pruebas - mailUP/mailchimp con notificaciones UIS",
+        "status": "Develop in progress",
+        "modified_date": "2025-07-28",
+        "created_date": "2025-03-06",
+        "change_id": 3,
+        "is_first": false,
+        "is_last": false
+      },
+      {
+        "ref": 903,
+        "subject": "Integración - pruebas - mailUP/mailchimp con notificaciones UIS",
         "status": "Open / Ready for sprint",
         "modified_date": "2025-07-28",
         "created_date": "2025-02-26",
-        "change_id": 3,
+        "change_id": 4,
         "is_first": false,
         "is_last": true
       }
@@ -710,10 +780,190 @@
       {
         "ref": 908,
         "subject": "Corrección de Bug en AutoRegistroServiceImpl para profesores con multiple identificación en integración/integration ifx",
+        "status": "To be tested",
+        "modified_date": "2025-05-02",
+        "created_date": "2025-03-24",
+        "change_id": 5,
+        "is_first": false,
+        "is_last": false
+      },
+      {
+        "ref": 908,
+        "subject": "Corrección de Bug en AutoRegistroServiceImpl para profesores con multiple identificación en integración/integration ifx",
+        "status": "Develop in progress",
+        "modified_date": "2025-05-02",
+        "created_date": "2025-03-20",
+        "change_id": 6,
+        "is_first": false,
+        "is_last": false
+      },
+      {
+        "ref": 908,
+        "subject": "Corrección de Bug en AutoRegistroServiceImpl para profesores con multiple identificación en integración/integration ifx",
+        "status": "To be tested",
+        "modified_date": "2025-05-02",
+        "created_date": "2025-03-20",
+        "change_id": 7,
+        "is_first": false,
+        "is_last": false
+      },
+      {
+        "ref": 908,
+        "subject": "Corrección de Bug en AutoRegistroServiceImpl para profesores con multiple identificación en integración/integration ifx",
+        "status": "Develop in progress",
+        "modified_date": "2025-05-02",
+        "created_date": "2025-03-20",
+        "change_id": 8,
+        "is_first": false,
+        "is_last": false
+      },
+      {
+        "ref": 908,
+        "subject": "Corrección de Bug en AutoRegistroServiceImpl para profesores con multiple identificación en integración/integration ifx",
+        "status": "To be tested",
+        "modified_date": "2025-05-02",
+        "created_date": "2025-03-20",
+        "change_id": 9,
+        "is_first": false,
+        "is_last": false
+      },
+      {
+        "ref": 908,
+        "subject": "Corrección de Bug en AutoRegistroServiceImpl para profesores con multiple identificación en integración/integration ifx",
+        "status": "Develop in progress",
+        "modified_date": "2025-05-02",
+        "created_date": "2025-03-20",
+        "change_id": 10,
+        "is_first": false,
+        "is_last": false
+      },
+      {
+        "ref": 908,
+        "subject": "Corrección de Bug en AutoRegistroServiceImpl para profesores con multiple identificación en integración/integration ifx",
+        "status": "To be tested",
+        "modified_date": "2025-05-02",
+        "created_date": "2025-03-20",
+        "change_id": 11,
+        "is_first": false,
+        "is_last": false
+      },
+      {
+        "ref": 908,
+        "subject": "Corrección de Bug en AutoRegistroServiceImpl para profesores con multiple identificación en integración/integration ifx",
+        "status": "Develop in progress",
+        "modified_date": "2025-05-02",
+        "created_date": "2025-03-20",
+        "change_id": 12,
+        "is_first": false,
+        "is_last": false
+      },
+      {
+        "ref": 908,
+        "subject": "Corrección de Bug en AutoRegistroServiceImpl para profesores con multiple identificación en integración/integration ifx",
+        "status": "On hold",
+        "modified_date": "2025-05-02",
+        "created_date": "2025-03-20",
+        "change_id": 13,
+        "is_first": false,
+        "is_last": false
+      },
+      {
+        "ref": 908,
+        "subject": "Corrección de Bug en AutoRegistroServiceImpl para profesores con multiple identificación en integración/integration ifx",
+        "status": "Develop in progress",
+        "modified_date": "2025-05-02",
+        "created_date": "2025-03-20",
+        "change_id": 14,
+        "is_first": false,
+        "is_last": false
+      },
+      {
+        "ref": 908,
+        "subject": "Corrección de Bug en AutoRegistroServiceImpl para profesores con multiple identificación en integración/integration ifx",
+        "status": "On hold",
+        "modified_date": "2025-05-02",
+        "created_date": "2025-03-20",
+        "change_id": 15,
+        "is_first": false,
+        "is_last": false
+      },
+      {
+        "ref": 908,
+        "subject": "Corrección de Bug en AutoRegistroServiceImpl para profesores con multiple identificación en integración/integration ifx",
+        "status": "Develop in progress",
+        "modified_date": "2025-05-02",
+        "created_date": "2025-03-20",
+        "change_id": 16,
+        "is_first": false,
+        "is_last": false
+      },
+      {
+        "ref": 908,
+        "subject": "Corrección de Bug en AutoRegistroServiceImpl para profesores con multiple identificación en integración/integration ifx",
+        "status": "To be tested",
+        "modified_date": "2025-05-02",
+        "created_date": "2025-03-20",
+        "change_id": 17,
+        "is_first": false,
+        "is_last": false
+      },
+      {
+        "ref": 908,
+        "subject": "Corrección de Bug en AutoRegistroServiceImpl para profesores con multiple identificación en integración/integration ifx",
+        "status": "Develop in progress",
+        "modified_date": "2025-05-02",
+        "created_date": "2025-03-20",
+        "change_id": 18,
+        "is_first": false,
+        "is_last": false
+      },
+      {
+        "ref": 908,
+        "subject": "Corrección de Bug en AutoRegistroServiceImpl para profesores con multiple identificación en integración/integration ifx",
         "status": "Ready for smoke test",
         "modified_date": "2025-05-02",
         "created_date": "2025-03-20",
-        "change_id": 5,
+        "change_id": 19,
+        "is_first": false,
+        "is_last": false
+      },
+      {
+        "ref": 908,
+        "subject": "Corrección de Bug en AutoRegistroServiceImpl para profesores con multiple identificación en integración/integration ifx",
+        "status": "Done",
+        "modified_date": "2025-05-02",
+        "created_date": "2025-03-20",
+        "change_id": 20,
+        "is_first": false,
+        "is_last": false
+      },
+      {
+        "ref": 908,
+        "subject": "Corrección de Bug en AutoRegistroServiceImpl para profesores con multiple identificación en integración/integration ifx",
+        "status": "Develop in progress",
+        "modified_date": "2025-05-02",
+        "created_date": "2025-03-20",
+        "change_id": 21,
+        "is_first": false,
+        "is_last": false
+      },
+      {
+        "ref": 908,
+        "subject": "Corrección de Bug en AutoRegistroServiceImpl para profesores con multiple identificación en integración/integration ifx",
+        "status": "Ready for smoke test",
+        "modified_date": "2025-05-02",
+        "created_date": "2025-03-20",
+        "change_id": 22,
+        "is_first": false,
+        "is_last": false
+      },
+      {
+        "ref": 908,
+        "subject": "Corrección de Bug en AutoRegistroServiceImpl para profesores con multiple identificación en integración/integration ifx",
+        "status": "Develop in progress",
+        "modified_date": "2025-05-02",
+        "created_date": "2025-03-13",
+        "change_id": 23,
         "is_first": false,
         "is_last": false
       },
@@ -723,7 +973,7 @@
         "status": "Open / Ready for sprint",
         "modified_date": "2025-05-02",
         "created_date": "2025-03-04",
-        "change_id": 6,
+        "change_id": 24,
         "is_first": false,
         "is_last": true
       }
@@ -794,10 +1044,50 @@
       {
         "ref": 965,
         "subject": "Evaluación de Docentes por Estudiantes",
+        "status": "QA-tests failed",
+        "modified_date": "2025-06-17",
+        "created_date": "2025-05-23",
+        "change_id": 4,
+        "is_first": false,
+        "is_last": false
+      },
+      {
+        "ref": 965,
+        "subject": "Evaluación de Docentes por Estudiantes",
+        "status": "To be tested",
+        "modified_date": "2025-06-17",
+        "created_date": "2025-05-12",
+        "change_id": 5,
+        "is_first": false,
+        "is_last": false
+      },
+      {
+        "ref": 965,
+        "subject": "Evaluación de Docentes por Estudiantes",
+        "status": "QA-tests failed",
+        "modified_date": "2025-06-17",
+        "created_date": "2025-05-09",
+        "change_id": 6,
+        "is_first": false,
+        "is_last": false
+      },
+      {
+        "ref": 965,
+        "subject": "Evaluación de Docentes por Estudiantes",
+        "status": "To be tested",
+        "modified_date": "2025-06-17",
+        "created_date": "2025-05-02",
+        "change_id": 7,
+        "is_first": false,
+        "is_last": false
+      },
+      {
+        "ref": 965,
+        "subject": "Evaluación de Docentes por Estudiantes",
         "status": "Ready for smoke test",
         "modified_date": "2025-06-17",
         "created_date": "2025-04-28",
-        "change_id": 4,
+        "change_id": 8,
         "is_first": false,
         "is_last": false
       },
@@ -807,7 +1097,7 @@
         "status": "Develop in progress",
         "modified_date": "2025-06-17",
         "created_date": "2025-03-27",
-        "change_id": 5,
+        "change_id": 9,
         "is_first": false,
         "is_last": false
       },
@@ -817,7 +1107,7 @@
         "status": "Open / Ready for sprint",
         "modified_date": "2025-06-17",
         "created_date": "2025-03-21",
-        "change_id": 6,
+        "change_id": 10,
         "is_first": false,
         "is_last": true
       }
@@ -856,10 +1146,40 @@
       {
         "ref": 966,
         "subject": "Autoevaluación de Docentes Ocasionales y Cátedra",
+        "status": "In QA / UX Test",
+        "modified_date": "2025-06-01",
+        "created_date": "2025-05-28",
+        "change_id": 4,
+        "is_first": false,
+        "is_last": false
+      },
+      {
+        "ref": 966,
+        "subject": "Autoevaluación de Docentes Ocasionales y Cátedra",
+        "status": "QA-tests failed",
+        "modified_date": "2025-06-01",
+        "created_date": "2025-05-05",
+        "change_id": 5,
+        "is_first": false,
+        "is_last": false
+      },
+      {
+        "ref": 966,
+        "subject": "Autoevaluación de Docentes Ocasionales y Cátedra",
+        "status": "In QA / UX Test",
+        "modified_date": "2025-06-01",
+        "created_date": "2025-04-28",
+        "change_id": 6,
+        "is_first": false,
+        "is_last": false
+      },
+      {
+        "ref": 966,
+        "subject": "Autoevaluación de Docentes Ocasionales y Cátedra",
         "status": "To be tested",
         "modified_date": "2025-06-01",
         "created_date": "2025-04-26",
-        "change_id": 4,
+        "change_id": 7,
         "is_first": false,
         "is_last": false
       },
@@ -869,7 +1189,7 @@
         "status": "Develop in progress",
         "modified_date": "2025-06-01",
         "created_date": "2025-04-01",
-        "change_id": 5,
+        "change_id": 8,
         "is_first": false,
         "is_last": false
       },
@@ -879,7 +1199,7 @@
         "status": "Open / Ready for sprint",
         "modified_date": "2025-06-01",
         "created_date": "2025-03-21",
-        "change_id": 6,
+        "change_id": 9,
         "is_first": false,
         "is_last": true
       }
@@ -918,9 +1238,9 @@
       {
         "ref": 967,
         "subject": "Evaluación de Docentes por Directores de Escuela y Vicerrectoría",
-        "status": "To be tested",
+        "status": "In QA / UX Test",
         "modified_date": "2025-06-01",
-        "created_date": "2025-04-24",
+        "created_date": "2025-04-25",
         "change_id": 4,
         "is_first": false,
         "is_last": false
@@ -928,7 +1248,7 @@
       {
         "ref": 967,
         "subject": "Evaluación de Docentes por Directores de Escuela y Vicerrectoría",
-        "status": "Ready for smoke test",
+        "status": "To be tested",
         "modified_date": "2025-06-01",
         "created_date": "2025-04-24",
         "change_id": 5,
@@ -938,10 +1258,20 @@
       {
         "ref": 967,
         "subject": "Evaluación de Docentes por Directores de Escuela y Vicerrectoría",
+        "status": "Ready for smoke test",
+        "modified_date": "2025-06-01",
+        "created_date": "2025-04-24",
+        "change_id": 6,
+        "is_first": false,
+        "is_last": false
+      },
+      {
+        "ref": 967,
+        "subject": "Evaluación de Docentes por Directores de Escuela y Vicerrectoría",
         "status": "Develop in progress",
         "modified_date": "2025-06-01",
         "created_date": "2025-04-01",
-        "change_id": 6,
+        "change_id": 7,
         "is_first": false,
         "is_last": false
       },
@@ -951,7 +1281,7 @@
         "status": "Open / Ready for sprint",
         "modified_date": "2025-06-01",
         "created_date": "2025-03-21",
-        "change_id": 7,
+        "change_id": 8,
         "is_first": false,
         "is_last": true
       }
@@ -1220,10 +1550,20 @@
       {
         "ref": 1028,
         "subject": "HU: Componentes públicos de pdf, por url id, para las rutas de alfresco autorizadas",
+        "status": "Open / Ready for sprint",
+        "modified_date": "2025-07-07",
+        "created_date": "2025-05-11",
+        "change_id": 9,
+        "is_first": false,
+        "is_last": false
+      },
+      {
+        "ref": 1028,
+        "subject": "HU: Componentes públicos de pdf, por url id, para las rutas de alfresco autorizadas",
         "status": "Canceled",
         "modified_date": "2025-07-07",
         "created_date": "2025-05-09",
-        "change_id": 9,
+        "change_id": 10,
         "is_first": false,
         "is_last": true
       }
@@ -1450,10 +1790,20 @@
       {
         "ref": 1099,
         "subject": "Roles_usuario_dominios(ORACLE) - revisar posibilidad de integración con INFORMIX",
+        "status": "To be tested",
+        "modified_date": "2025-06-27",
+        "created_date": "2025-05-29",
+        "change_id": 6,
+        "is_first": false,
+        "is_last": false
+      },
+      {
+        "ref": 1099,
+        "subject": "Roles_usuario_dominios(ORACLE) - revisar posibilidad de integración con INFORMIX",
         "status": "Develop in progress",
         "modified_date": "2025-06-27",
         "created_date": "2025-05-21",
-        "change_id": 6,
+        "change_id": 7,
         "is_first": false,
         "is_last": false
       },
@@ -1463,7 +1813,7 @@
         "status": "Open / Ready for sprint",
         "modified_date": "2025-06-27",
         "created_date": "2025-05-12",
-        "change_id": 7,
+        "change_id": 8,
         "is_first": false,
         "is_last": true
       }
@@ -1524,10 +1874,30 @@
       {
         "ref": 1101,
         "subject": "Gestión Integral de Usuarios Diversos en la Plataforma SIA",
+        "status": "QA-tests failed",
+        "modified_date": "2025-06-09",
+        "created_date": "2025-06-03",
+        "change_id": 4,
+        "is_first": false,
+        "is_last": false
+      },
+      {
+        "ref": 1101,
+        "subject": "Gestión Integral de Usuarios Diversos en la Plataforma SIA",
+        "status": "To be tested",
+        "modified_date": "2025-06-09",
+        "created_date": "2025-05-30",
+        "change_id": 5,
+        "is_first": false,
+        "is_last": false
+      },
+      {
+        "ref": 1101,
+        "subject": "Gestión Integral de Usuarios Diversos en la Plataforma SIA",
         "status": "Develop in progress",
         "modified_date": "2025-06-09",
         "created_date": "2025-05-16",
-        "change_id": 4,
+        "change_id": 6,
         "is_first": false,
         "is_last": false
       },
@@ -1537,7 +1907,7 @@
         "status": "Open / Ready for sprint",
         "modified_date": "2025-06-09",
         "created_date": "2025-05-12",
-        "change_id": 5,
+        "change_id": 7,
         "is_first": false,
         "is_last": true
       }
@@ -1586,10 +1956,20 @@
       {
         "ref": 1102,
         "subject": "Inclusión de Aspirantes Académicos en Envío de Notificaciones",
+        "status": "To be tested",
+        "modified_date": "2025-06-10",
+        "created_date": "2025-06-08",
+        "change_id": 5,
+        "is_first": false,
+        "is_last": false
+      },
+      {
+        "ref": 1102,
+        "subject": "Inclusión de Aspirantes Académicos en Envío de Notificaciones",
         "status": "Develop in progress",
         "modified_date": "2025-06-10",
         "created_date": "2025-05-14",
-        "change_id": 5,
+        "change_id": 6,
         "is_first": false,
         "is_last": false
       },
@@ -1599,7 +1979,7 @@
         "status": "Open / Ready for sprint",
         "modified_date": "2025-06-10",
         "created_date": "2025-05-12",
-        "change_id": 6,
+        "change_id": 7,
         "is_first": false,
         "is_last": true
       }
@@ -1668,10 +2048,30 @@
       {
         "ref": 1103,
         "subject": "Vulnerabilidad al cambiar la foto de perfil",
+        "status": "To be tested",
+        "modified_date": "2025-06-13",
+        "created_date": "2025-05-26",
+        "change_id": 7,
+        "is_first": false,
+        "is_last": false
+      },
+      {
+        "ref": 1103,
+        "subject": "Vulnerabilidad al cambiar la foto de perfil",
+        "status": "Develop in progress",
+        "modified_date": "2025-06-13",
+        "created_date": "2025-05-26",
+        "change_id": 8,
+        "is_first": false,
+        "is_last": false
+      },
+      {
+        "ref": 1103,
+        "subject": "Vulnerabilidad al cambiar la foto de perfil",
         "status": "Open / Ready for sprint",
         "modified_date": "2025-06-13",
         "created_date": "2025-05-12",
-        "change_id": 7,
+        "change_id": 9,
         "is_first": false,
         "is_last": true
       }
@@ -1747,6 +2147,26 @@
         "created_date": "2025-05-15",
         "change_id": 2,
         "is_first": false,
+        "is_last": false
+      },
+      {
+        "ref": 1105,
+        "subject": "Ajuste post migraciones a 2 ramas, docker, jdk 21",
+        "status": "Develop in progress",
+        "modified_date": "2025-05-21",
+        "created_date": "2025-05-15",
+        "change_id": 3,
+        "is_first": false,
+        "is_last": false
+      },
+      {
+        "ref": 1105,
+        "subject": "Ajuste post migraciones a 2 ramas, docker, jdk 21",
+        "status": "Open / Ready for sprint",
+        "modified_date": "2025-05-21",
+        "created_date": "2025-05-13",
+        "change_id": 4,
+        "is_first": false,
         "is_last": true
       }
     ],
@@ -1794,10 +2214,20 @@
       {
         "ref": 1106,
         "subject": "Ajuste de mantenimiento por mal funcionamiento o errores encontrados",
+        "status": "To be tested",
+        "modified_date": "2025-07-18",
+        "created_date": "2025-06-06",
+        "change_id": 5,
+        "is_first": false,
+        "is_last": false
+      },
+      {
+        "ref": 1106,
+        "subject": "Ajuste de mantenimiento por mal funcionamiento o errores encontrados",
         "status": "Develop in progress",
         "modified_date": "2025-07-18",
         "created_date": "2025-05-21",
-        "change_id": 5,
+        "change_id": 6,
         "is_first": false,
         "is_last": false
       },
@@ -1807,7 +2237,7 @@
         "status": "Open / Ready for sprint",
         "modified_date": "2025-07-18",
         "created_date": "2025-05-13",
-        "change_id": 6,
+        "change_id": 7,
         "is_first": false,
         "is_last": true
       }
@@ -1930,9 +2360,9 @@
       {
         "ref": 1155,
         "subject": "Ajuste del Autoregistro para Planta Temporal (Revisar)",
-        "status": "In QA / UX Test",
+        "status": "Done",
         "modified_date": "2025-07-22",
-        "created_date": "2025-06-20",
+        "created_date": "2025-07-18",
         "change_id": 3,
         "is_first": false,
         "is_last": false
@@ -1940,9 +2370,9 @@
       {
         "ref": 1155,
         "subject": "Ajuste del Autoregistro para Planta Temporal (Revisar)",
-        "status": "To be tested",
+        "status": "QA-tests failed",
         "modified_date": "2025-07-22",
-        "created_date": "2025-06-20",
+        "created_date": "2025-07-09",
         "change_id": 4,
         "is_first": false,
         "is_last": false
@@ -1950,7 +2380,7 @@
       {
         "ref": 1155,
         "subject": "Ajuste del Autoregistro para Planta Temporal (Revisar)",
-        "status": "Ready for smoke test",
+        "status": "In QA / UX Test",
         "modified_date": "2025-07-22",
         "created_date": "2025-06-20",
         "change_id": 5,
@@ -1960,10 +2390,30 @@
       {
         "ref": 1155,
         "subject": "Ajuste del Autoregistro para Planta Temporal (Revisar)",
+        "status": "To be tested",
+        "modified_date": "2025-07-22",
+        "created_date": "2025-06-20",
+        "change_id": 6,
+        "is_first": false,
+        "is_last": false
+      },
+      {
+        "ref": 1155,
+        "subject": "Ajuste del Autoregistro para Planta Temporal (Revisar)",
+        "status": "Ready for smoke test",
+        "modified_date": "2025-07-22",
+        "created_date": "2025-06-20",
+        "change_id": 7,
+        "is_first": false,
+        "is_last": false
+      },
+      {
+        "ref": 1155,
+        "subject": "Ajuste del Autoregistro para Planta Temporal (Revisar)",
         "status": "Develop in progress",
         "modified_date": "2025-07-22",
         "created_date": "2025-06-05",
-        "change_id": 6,
+        "change_id": 8,
         "is_first": false,
         "is_last": false
       },
@@ -1973,7 +2423,7 @@
         "status": "Open / Ready for sprint",
         "modified_date": "2025-07-22",
         "created_date": "2025-05-30",
-        "change_id": 7,
+        "change_id": 9,
         "is_first": false,
         "is_last": true
       }
@@ -2294,10 +2744,30 @@
       {
         "ref": 1190,
         "subject": "Revisar traslado de estudiantes de informix a Oracle",
+        "status": "Ready for smoke test",
+        "modified_date": "2025-07-28",
+        "created_date": "2025-07-09",
+        "change_id": 3,
+        "is_first": false,
+        "is_last": false
+      },
+      {
+        "ref": 1190,
+        "subject": "Revisar traslado de estudiantes de informix a Oracle",
+        "status": "Develop in progress",
+        "modified_date": "2025-07-28",
+        "created_date": "2025-06-25",
+        "change_id": 4,
+        "is_first": false,
+        "is_last": false
+      },
+      {
+        "ref": 1190,
+        "subject": "Revisar traslado de estudiantes de informix a Oracle",
         "status": "Open / Ready for sprint",
         "modified_date": "2025-07-28",
         "created_date": "2025-06-23",
-        "change_id": 3,
+        "change_id": 5,
         "is_first": false,
         "is_last": true
       }
@@ -2453,10 +2923,30 @@
     {
       "ref": 1190,
       "subject": "Revisar traslado de estudiantes de informix a Oracle",
+      "status": "Ready for smoke test",
+      "modified_date": "2025-07-28",
+      "created_date": "2025-07-09",
+      "change_id": 3,
+      "is_first": false,
+      "is_last": false
+    },
+    {
+      "ref": 1190,
+      "subject": "Revisar traslado de estudiantes de informix a Oracle",
+      "status": "Develop in progress",
+      "modified_date": "2025-07-28",
+      "created_date": "2025-06-25",
+      "change_id": 4,
+      "is_first": false,
+      "is_last": false
+    },
+    {
+      "ref": 1190,
+      "subject": "Revisar traslado de estudiantes de informix a Oracle",
       "status": "Open / Ready for sprint",
       "modified_date": "2025-07-28",
       "created_date": "2025-06-23",
-      "change_id": 3,
+      "change_id": 5,
       "is_first": false,
       "is_last": true
     },
@@ -2713,9 +3203,9 @@
     {
       "ref": 1155,
       "subject": "Ajuste del Autoregistro para Planta Temporal (Revisar)",
-      "status": "In QA / UX Test",
+      "status": "Done",
       "modified_date": "2025-07-22",
-      "created_date": "2025-06-20",
+      "created_date": "2025-07-18",
       "change_id": 3,
       "is_first": false,
       "is_last": false
@@ -2723,9 +3213,9 @@
     {
       "ref": 1155,
       "subject": "Ajuste del Autoregistro para Planta Temporal (Revisar)",
-      "status": "To be tested",
+      "status": "QA-tests failed",
       "modified_date": "2025-07-22",
-      "created_date": "2025-06-20",
+      "created_date": "2025-07-09",
       "change_id": 4,
       "is_first": false,
       "is_last": false
@@ -2733,7 +3223,7 @@
     {
       "ref": 1155,
       "subject": "Ajuste del Autoregistro para Planta Temporal (Revisar)",
-      "status": "Ready for smoke test",
+      "status": "In QA / UX Test",
       "modified_date": "2025-07-22",
       "created_date": "2025-06-20",
       "change_id": 5,
@@ -2743,10 +3233,30 @@
     {
       "ref": 1155,
       "subject": "Ajuste del Autoregistro para Planta Temporal (Revisar)",
+      "status": "To be tested",
+      "modified_date": "2025-07-22",
+      "created_date": "2025-06-20",
+      "change_id": 6,
+      "is_first": false,
+      "is_last": false
+    },
+    {
+      "ref": 1155,
+      "subject": "Ajuste del Autoregistro para Planta Temporal (Revisar)",
+      "status": "Ready for smoke test",
+      "modified_date": "2025-07-22",
+      "created_date": "2025-06-20",
+      "change_id": 7,
+      "is_first": false,
+      "is_last": false
+    },
+    {
+      "ref": 1155,
+      "subject": "Ajuste del Autoregistro para Planta Temporal (Revisar)",
       "status": "Develop in progress",
       "modified_date": "2025-07-22",
       "created_date": "2025-06-05",
-      "change_id": 6,
+      "change_id": 8,
       "is_first": false,
       "is_last": false
     },
@@ -2756,7 +3266,7 @@
       "status": "Open / Ready for sprint",
       "modified_date": "2025-07-22",
       "created_date": "2025-05-30",
-      "change_id": 7,
+      "change_id": 9,
       "is_first": false,
       "is_last": true
     },
@@ -3143,10 +3653,30 @@
     {
       "ref": 1101,
       "subject": "Gestión Integral de Usuarios Diversos en la Plataforma SIA",
+      "status": "QA-tests failed",
+      "modified_date": "2025-06-09",
+      "created_date": "2025-06-03",
+      "change_id": 4,
+      "is_first": false,
+      "is_last": false
+    },
+    {
+      "ref": 1101,
+      "subject": "Gestión Integral de Usuarios Diversos en la Plataforma SIA",
+      "status": "To be tested",
+      "modified_date": "2025-06-09",
+      "created_date": "2025-05-30",
+      "change_id": 5,
+      "is_first": false,
+      "is_last": false
+    },
+    {
+      "ref": 1101,
+      "subject": "Gestión Integral de Usuarios Diversos en la Plataforma SIA",
       "status": "Develop in progress",
       "modified_date": "2025-06-09",
       "created_date": "2025-05-16",
-      "change_id": 4,
+      "change_id": 6,
       "is_first": false,
       "is_last": false
     },
@@ -3156,7 +3686,7 @@
       "status": "Open / Ready for sprint",
       "modified_date": "2025-06-09",
       "created_date": "2025-05-12",
-      "change_id": 5,
+      "change_id": 7,
       "is_first": false,
       "is_last": true
     },
@@ -3233,10 +3763,20 @@
     {
       "ref": 1099,
       "subject": "Roles_usuario_dominios(ORACLE) - revisar posibilidad de integración con INFORMIX",
+      "status": "To be tested",
+      "modified_date": "2025-06-27",
+      "created_date": "2025-05-29",
+      "change_id": 6,
+      "is_first": false,
+      "is_last": false
+    },
+    {
+      "ref": 1099,
+      "subject": "Roles_usuario_dominios(ORACLE) - revisar posibilidad de integración con INFORMIX",
       "status": "Develop in progress",
       "modified_date": "2025-06-27",
       "created_date": "2025-05-21",
-      "change_id": 6,
+      "change_id": 7,
       "is_first": false,
       "is_last": false
     },
@@ -3246,7 +3786,7 @@
       "status": "Open / Ready for sprint",
       "modified_date": "2025-06-27",
       "created_date": "2025-05-12",
-      "change_id": 7,
+      "change_id": 8,
       "is_first": false,
       "is_last": true
     },
@@ -3333,10 +3873,20 @@
     {
       "ref": 1028,
       "subject": "HU: Componentes públicos de pdf, por url id, para las rutas de alfresco autorizadas",
+      "status": "Open / Ready for sprint",
+      "modified_date": "2025-07-07",
+      "created_date": "2025-05-11",
+      "change_id": 9,
+      "is_first": false,
+      "is_last": false
+    },
+    {
+      "ref": 1028,
+      "subject": "HU: Componentes públicos de pdf, por url id, para las rutas de alfresco autorizadas",
       "status": "Canceled",
       "modified_date": "2025-07-07",
       "created_date": "2025-05-09",
-      "change_id": 9,
+      "change_id": 10,
       "is_first": false,
       "is_last": true
     },
@@ -3383,10 +3933,20 @@
     {
       "ref": 1102,
       "subject": "Inclusión de Aspirantes Académicos en Envío de Notificaciones",
+      "status": "To be tested",
+      "modified_date": "2025-06-10",
+      "created_date": "2025-06-08",
+      "change_id": 5,
+      "is_first": false,
+      "is_last": false
+    },
+    {
+      "ref": 1102,
+      "subject": "Inclusión de Aspirantes Académicos en Envío de Notificaciones",
       "status": "Develop in progress",
       "modified_date": "2025-06-10",
       "created_date": "2025-05-14",
-      "change_id": 5,
+      "change_id": 6,
       "is_first": false,
       "is_last": false
     },
@@ -3396,7 +3956,7 @@
       "status": "Open / Ready for sprint",
       "modified_date": "2025-06-10",
       "created_date": "2025-05-12",
-      "change_id": 6,
+      "change_id": 7,
       "is_first": false,
       "is_last": true
     },
@@ -3463,10 +4023,30 @@
     {
       "ref": 1103,
       "subject": "Vulnerabilidad al cambiar la foto de perfil",
+      "status": "To be tested",
+      "modified_date": "2025-06-13",
+      "created_date": "2025-05-26",
+      "change_id": 7,
+      "is_first": false,
+      "is_last": false
+    },
+    {
+      "ref": 1103,
+      "subject": "Vulnerabilidad al cambiar la foto de perfil",
+      "status": "Develop in progress",
+      "modified_date": "2025-06-13",
+      "created_date": "2025-05-26",
+      "change_id": 8,
+      "is_first": false,
+      "is_last": false
+    },
+    {
+      "ref": 1103,
+      "subject": "Vulnerabilidad al cambiar la foto de perfil",
       "status": "Open / Ready for sprint",
       "modified_date": "2025-06-13",
       "created_date": "2025-05-12",
-      "change_id": 7,
+      "change_id": 9,
       "is_first": false,
       "is_last": true
     },
@@ -3538,6 +4118,26 @@
       "created_date": "2025-05-15",
       "change_id": 2,
       "is_first": false,
+      "is_last": false
+    },
+    {
+      "ref": 1105,
+      "subject": "Ajuste post migraciones a 2 ramas, docker, jdk 21",
+      "status": "Develop in progress",
+      "modified_date": "2025-05-21",
+      "created_date": "2025-05-15",
+      "change_id": 3,
+      "is_first": false,
+      "is_last": false
+    },
+    {
+      "ref": 1105,
+      "subject": "Ajuste post migraciones a 2 ramas, docker, jdk 21",
+      "status": "Open / Ready for sprint",
+      "modified_date": "2025-05-21",
+      "created_date": "2025-05-13",
+      "change_id": 4,
+      "is_first": false,
       "is_last": true
     },
     {
@@ -3583,10 +4183,20 @@
     {
       "ref": 1106,
       "subject": "Ajuste de mantenimiento por mal funcionamiento o errores encontrados",
+      "status": "To be tested",
+      "modified_date": "2025-07-18",
+      "created_date": "2025-06-06",
+      "change_id": 5,
+      "is_first": false,
+      "is_last": false
+    },
+    {
+      "ref": 1106,
+      "subject": "Ajuste de mantenimiento por mal funcionamiento o errores encontrados",
       "status": "Develop in progress",
       "modified_date": "2025-07-18",
       "created_date": "2025-05-21",
-      "change_id": 5,
+      "change_id": 6,
       "is_first": false,
       "is_last": false
     },
@@ -3596,7 +4206,7 @@
       "status": "Open / Ready for sprint",
       "modified_date": "2025-07-18",
       "created_date": "2025-05-13",
-      "change_id": 6,
+      "change_id": 7,
       "is_first": false,
       "is_last": true
     },
@@ -3663,10 +4273,50 @@
     {
       "ref": 965,
       "subject": "Evaluación de Docentes por Estudiantes",
+      "status": "QA-tests failed",
+      "modified_date": "2025-06-17",
+      "created_date": "2025-05-23",
+      "change_id": 4,
+      "is_first": false,
+      "is_last": false
+    },
+    {
+      "ref": 965,
+      "subject": "Evaluación de Docentes por Estudiantes",
+      "status": "To be tested",
+      "modified_date": "2025-06-17",
+      "created_date": "2025-05-12",
+      "change_id": 5,
+      "is_first": false,
+      "is_last": false
+    },
+    {
+      "ref": 965,
+      "subject": "Evaluación de Docentes por Estudiantes",
+      "status": "QA-tests failed",
+      "modified_date": "2025-06-17",
+      "created_date": "2025-05-09",
+      "change_id": 6,
+      "is_first": false,
+      "is_last": false
+    },
+    {
+      "ref": 965,
+      "subject": "Evaluación de Docentes por Estudiantes",
+      "status": "To be tested",
+      "modified_date": "2025-06-17",
+      "created_date": "2025-05-02",
+      "change_id": 7,
+      "is_first": false,
+      "is_last": false
+    },
+    {
+      "ref": 965,
+      "subject": "Evaluación de Docentes por Estudiantes",
       "status": "Ready for smoke test",
       "modified_date": "2025-06-17",
       "created_date": "2025-04-28",
-      "change_id": 4,
+      "change_id": 8,
       "is_first": false,
       "is_last": false
     },
@@ -3676,7 +4326,7 @@
       "status": "Develop in progress",
       "modified_date": "2025-06-17",
       "created_date": "2025-03-27",
-      "change_id": 5,
+      "change_id": 9,
       "is_first": false,
       "is_last": false
     },
@@ -3686,7 +4336,7 @@
       "status": "Open / Ready for sprint",
       "modified_date": "2025-06-17",
       "created_date": "2025-03-21",
-      "change_id": 6,
+      "change_id": 10,
       "is_first": false,
       "is_last": true
     },
@@ -3723,10 +4373,40 @@
     {
       "ref": 966,
       "subject": "Autoevaluación de Docentes Ocasionales y Cátedra",
+      "status": "In QA / UX Test",
+      "modified_date": "2025-06-01",
+      "created_date": "2025-05-28",
+      "change_id": 4,
+      "is_first": false,
+      "is_last": false
+    },
+    {
+      "ref": 966,
+      "subject": "Autoevaluación de Docentes Ocasionales y Cátedra",
+      "status": "QA-tests failed",
+      "modified_date": "2025-06-01",
+      "created_date": "2025-05-05",
+      "change_id": 5,
+      "is_first": false,
+      "is_last": false
+    },
+    {
+      "ref": 966,
+      "subject": "Autoevaluación de Docentes Ocasionales y Cátedra",
+      "status": "In QA / UX Test",
+      "modified_date": "2025-06-01",
+      "created_date": "2025-04-28",
+      "change_id": 6,
+      "is_first": false,
+      "is_last": false
+    },
+    {
+      "ref": 966,
+      "subject": "Autoevaluación de Docentes Ocasionales y Cátedra",
       "status": "To be tested",
       "modified_date": "2025-06-01",
       "created_date": "2025-04-26",
-      "change_id": 4,
+      "change_id": 7,
       "is_first": false,
       "is_last": false
     },
@@ -3736,7 +4416,7 @@
       "status": "Develop in progress",
       "modified_date": "2025-06-01",
       "created_date": "2025-04-01",
-      "change_id": 5,
+      "change_id": 8,
       "is_first": false,
       "is_last": false
     },
@@ -3746,7 +4426,7 @@
       "status": "Open / Ready for sprint",
       "modified_date": "2025-06-01",
       "created_date": "2025-03-21",
-      "change_id": 6,
+      "change_id": 9,
       "is_first": false,
       "is_last": true
     },
@@ -3783,9 +4463,9 @@
     {
       "ref": 967,
       "subject": "Evaluación de Docentes por Directores de Escuela y Vicerrectoría",
-      "status": "To be tested",
+      "status": "In QA / UX Test",
       "modified_date": "2025-06-01",
-      "created_date": "2025-04-24",
+      "created_date": "2025-04-25",
       "change_id": 4,
       "is_first": false,
       "is_last": false
@@ -3793,7 +4473,7 @@
     {
       "ref": 967,
       "subject": "Evaluación de Docentes por Directores de Escuela y Vicerrectoría",
-      "status": "Ready for smoke test",
+      "status": "To be tested",
       "modified_date": "2025-06-01",
       "created_date": "2025-04-24",
       "change_id": 5,
@@ -3803,10 +4483,20 @@
     {
       "ref": 967,
       "subject": "Evaluación de Docentes por Directores de Escuela y Vicerrectoría",
+      "status": "Ready for smoke test",
+      "modified_date": "2025-06-01",
+      "created_date": "2025-04-24",
+      "change_id": 6,
+      "is_first": false,
+      "is_last": false
+    },
+    {
+      "ref": 967,
+      "subject": "Evaluación de Docentes por Directores de Escuela y Vicerrectoría",
       "status": "Develop in progress",
       "modified_date": "2025-06-01",
       "created_date": "2025-04-01",
-      "change_id": 6,
+      "change_id": 7,
       "is_first": false,
       "is_last": false
     },
@@ -3816,7 +4506,7 @@
       "status": "Open / Ready for sprint",
       "modified_date": "2025-06-01",
       "created_date": "2025-03-21",
-      "change_id": 7,
+      "change_id": 8,
       "is_first": false,
       "is_last": true
     },
@@ -4123,10 +4813,30 @@
     {
       "ref": 900,
       "subject": "Corrección y mejora en los buscadores del SIA (pantalla de losetas y side menu)",
+      "status": "Done",
+      "modified_date": "2025-03-21",
+      "created_date": "2025-03-21",
+      "change_id": 3,
+      "is_first": false,
+      "is_last": false
+    },
+    {
+      "ref": 900,
+      "subject": "Corrección y mejora en los buscadores del SIA (pantalla de losetas y side menu)",
+      "status": "QA-tests failed",
+      "modified_date": "2025-03-21",
+      "created_date": "2025-03-20",
+      "change_id": 4,
+      "is_first": false,
+      "is_last": false
+    },
+    {
+      "ref": 900,
+      "subject": "Corrección y mejora en los buscadores del SIA (pantalla de losetas y side menu)",
       "status": "In QA / UX Test",
       "modified_date": "2025-03-21",
       "created_date": "2025-03-19",
-      "change_id": 3,
+      "change_id": 5,
       "is_first": false,
       "is_last": false
     },
@@ -4136,7 +4846,7 @@
       "status": "To be tested",
       "modified_date": "2025-03-21",
       "created_date": "2025-03-11",
-      "change_id": 4,
+      "change_id": 6,
       "is_first": false,
       "is_last": false
     },
@@ -4146,7 +4856,7 @@
       "status": "Ready for smoke test",
       "modified_date": "2025-03-21",
       "created_date": "2025-03-11",
-      "change_id": 5,
+      "change_id": 7,
       "is_first": false,
       "is_last": false
     },
@@ -4156,7 +4866,7 @@
       "status": "Develop in progress",
       "modified_date": "2025-03-21",
       "created_date": "2025-03-06",
-      "change_id": 6,
+      "change_id": 8,
       "is_first": false,
       "is_last": false
     },
@@ -4166,7 +4876,7 @@
       "status": "Open / Ready for sprint",
       "modified_date": "2025-03-21",
       "created_date": "2025-02-25",
-      "change_id": 7,
+      "change_id": 9,
       "is_first": false,
       "is_last": true
     },
@@ -4233,10 +4943,30 @@
     {
       "ref": 898,
       "subject": "Ajustes y Correcciones en el Directorio UIS",
+      "status": "Done",
+      "modified_date": "2025-03-25",
+      "created_date": "2025-03-18",
+      "change_id": 4,
+      "is_first": false,
+      "is_last": false
+    },
+    {
+      "ref": 898,
+      "subject": "Ajustes y Correcciones en el Directorio UIS",
+      "status": "QA-tests failed",
+      "modified_date": "2025-03-25",
+      "created_date": "2025-03-14",
+      "change_id": 5,
+      "is_first": false,
+      "is_last": false
+    },
+    {
+      "ref": 898,
+      "subject": "Ajustes y Correcciones en el Directorio UIS",
       "status": "In QA / UX Test",
       "modified_date": "2025-03-25",
       "created_date": "2025-03-07",
-      "change_id": 4,
+      "change_id": 6,
       "is_first": false,
       "is_last": false
     },
@@ -4246,7 +4976,7 @@
       "status": "Develop in progress",
       "modified_date": "2025-03-25",
       "created_date": "2025-03-05",
-      "change_id": 5,
+      "change_id": 7,
       "is_first": false,
       "is_last": false
     },
@@ -4256,7 +4986,7 @@
       "status": "Open / Ready for sprint",
       "modified_date": "2025-03-25",
       "created_date": "2025-02-24",
-      "change_id": 6,
+      "change_id": 8,
       "is_first": false,
       "is_last": true
     },
@@ -4308,6 +5038,16 @@
       "created_date": "2025-02-24",
       "change_id": 5,
       "is_first": false,
+      "is_last": false
+    },
+    {
+      "ref": 897,
+      "subject": "Corrección y Mejora en bug  del Proceso de Actualización de Extensión Telefónica",
+      "status": "Develop in progress",
+      "modified_date": "2025-03-26",
+      "created_date": "2025-02-24",
+      "change_id": 6,
+      "is_first": false,
       "is_last": true
     },
     {
@@ -4343,10 +5083,20 @@
     {
       "ref": 896,
       "subject": "Corrección de bug de autoregistro de Proveedores",
+      "status": "Done",
+      "modified_date": "2025-03-17",
+      "created_date": "2025-03-07",
+      "change_id": 4,
+      "is_first": false,
+      "is_last": false
+    },
+    {
+      "ref": 896,
+      "subject": "Corrección de bug de autoregistro de Proveedores",
       "status": "Develop in progress",
       "modified_date": "2025-03-17",
       "created_date": "2025-02-25",
-      "change_id": 4,
+      "change_id": 5,
       "is_first": false,
       "is_last": false
     },
@@ -4356,7 +5106,7 @@
       "status": "Open / Ready for sprint",
       "modified_date": "2025-03-17",
       "created_date": "2025-02-21",
-      "change_id": 5,
+      "change_id": 6,
       "is_first": false,
       "is_last": true
     },
@@ -4493,10 +5243,20 @@
     {
       "ref": 903,
       "subject": "Integración - pruebas - mailUP/mailchimp con notificaciones UIS",
+      "status": "Develop in progress",
+      "modified_date": "2025-07-28",
+      "created_date": "2025-03-06",
+      "change_id": 3,
+      "is_first": false,
+      "is_last": false
+    },
+    {
+      "ref": 903,
+      "subject": "Integración - pruebas - mailUP/mailchimp con notificaciones UIS",
       "status": "Open / Ready for sprint",
       "modified_date": "2025-07-28",
       "created_date": "2025-02-26",
-      "change_id": 3,
+      "change_id": 4,
       "is_first": false,
       "is_last": true
     },
@@ -4643,10 +5403,190 @@
     {
       "ref": 908,
       "subject": "Corrección de Bug en AutoRegistroServiceImpl para profesores con multiple identificación en integración/integration ifx",
+      "status": "To be tested",
+      "modified_date": "2025-05-02",
+      "created_date": "2025-03-24",
+      "change_id": 5,
+      "is_first": false,
+      "is_last": false
+    },
+    {
+      "ref": 908,
+      "subject": "Corrección de Bug en AutoRegistroServiceImpl para profesores con multiple identificación en integración/integration ifx",
+      "status": "Develop in progress",
+      "modified_date": "2025-05-02",
+      "created_date": "2025-03-20",
+      "change_id": 6,
+      "is_first": false,
+      "is_last": false
+    },
+    {
+      "ref": 908,
+      "subject": "Corrección de Bug en AutoRegistroServiceImpl para profesores con multiple identificación en integración/integration ifx",
+      "status": "To be tested",
+      "modified_date": "2025-05-02",
+      "created_date": "2025-03-20",
+      "change_id": 7,
+      "is_first": false,
+      "is_last": false
+    },
+    {
+      "ref": 908,
+      "subject": "Corrección de Bug en AutoRegistroServiceImpl para profesores con multiple identificación en integración/integration ifx",
+      "status": "Develop in progress",
+      "modified_date": "2025-05-02",
+      "created_date": "2025-03-20",
+      "change_id": 8,
+      "is_first": false,
+      "is_last": false
+    },
+    {
+      "ref": 908,
+      "subject": "Corrección de Bug en AutoRegistroServiceImpl para profesores con multiple identificación en integración/integration ifx",
+      "status": "To be tested",
+      "modified_date": "2025-05-02",
+      "created_date": "2025-03-20",
+      "change_id": 9,
+      "is_first": false,
+      "is_last": false
+    },
+    {
+      "ref": 908,
+      "subject": "Corrección de Bug en AutoRegistroServiceImpl para profesores con multiple identificación en integración/integration ifx",
+      "status": "Develop in progress",
+      "modified_date": "2025-05-02",
+      "created_date": "2025-03-20",
+      "change_id": 10,
+      "is_first": false,
+      "is_last": false
+    },
+    {
+      "ref": 908,
+      "subject": "Corrección de Bug en AutoRegistroServiceImpl para profesores con multiple identificación en integración/integration ifx",
+      "status": "To be tested",
+      "modified_date": "2025-05-02",
+      "created_date": "2025-03-20",
+      "change_id": 11,
+      "is_first": false,
+      "is_last": false
+    },
+    {
+      "ref": 908,
+      "subject": "Corrección de Bug en AutoRegistroServiceImpl para profesores con multiple identificación en integración/integration ifx",
+      "status": "Develop in progress",
+      "modified_date": "2025-05-02",
+      "created_date": "2025-03-20",
+      "change_id": 12,
+      "is_first": false,
+      "is_last": false
+    },
+    {
+      "ref": 908,
+      "subject": "Corrección de Bug en AutoRegistroServiceImpl para profesores con multiple identificación en integración/integration ifx",
+      "status": "On hold",
+      "modified_date": "2025-05-02",
+      "created_date": "2025-03-20",
+      "change_id": 13,
+      "is_first": false,
+      "is_last": false
+    },
+    {
+      "ref": 908,
+      "subject": "Corrección de Bug en AutoRegistroServiceImpl para profesores con multiple identificación en integración/integration ifx",
+      "status": "Develop in progress",
+      "modified_date": "2025-05-02",
+      "created_date": "2025-03-20",
+      "change_id": 14,
+      "is_first": false,
+      "is_last": false
+    },
+    {
+      "ref": 908,
+      "subject": "Corrección de Bug en AutoRegistroServiceImpl para profesores con multiple identificación en integración/integration ifx",
+      "status": "On hold",
+      "modified_date": "2025-05-02",
+      "created_date": "2025-03-20",
+      "change_id": 15,
+      "is_first": false,
+      "is_last": false
+    },
+    {
+      "ref": 908,
+      "subject": "Corrección de Bug en AutoRegistroServiceImpl para profesores con multiple identificación en integración/integration ifx",
+      "status": "Develop in progress",
+      "modified_date": "2025-05-02",
+      "created_date": "2025-03-20",
+      "change_id": 16,
+      "is_first": false,
+      "is_last": false
+    },
+    {
+      "ref": 908,
+      "subject": "Corrección de Bug en AutoRegistroServiceImpl para profesores con multiple identificación en integración/integration ifx",
+      "status": "To be tested",
+      "modified_date": "2025-05-02",
+      "created_date": "2025-03-20",
+      "change_id": 17,
+      "is_first": false,
+      "is_last": false
+    },
+    {
+      "ref": 908,
+      "subject": "Corrección de Bug en AutoRegistroServiceImpl para profesores con multiple identificación en integración/integration ifx",
+      "status": "Develop in progress",
+      "modified_date": "2025-05-02",
+      "created_date": "2025-03-20",
+      "change_id": 18,
+      "is_first": false,
+      "is_last": false
+    },
+    {
+      "ref": 908,
+      "subject": "Corrección de Bug en AutoRegistroServiceImpl para profesores con multiple identificación en integración/integration ifx",
       "status": "Ready for smoke test",
       "modified_date": "2025-05-02",
       "created_date": "2025-03-20",
-      "change_id": 5,
+      "change_id": 19,
+      "is_first": false,
+      "is_last": false
+    },
+    {
+      "ref": 908,
+      "subject": "Corrección de Bug en AutoRegistroServiceImpl para profesores con multiple identificación en integración/integration ifx",
+      "status": "Done",
+      "modified_date": "2025-05-02",
+      "created_date": "2025-03-20",
+      "change_id": 20,
+      "is_first": false,
+      "is_last": false
+    },
+    {
+      "ref": 908,
+      "subject": "Corrección de Bug en AutoRegistroServiceImpl para profesores con multiple identificación en integración/integration ifx",
+      "status": "Develop in progress",
+      "modified_date": "2025-05-02",
+      "created_date": "2025-03-20",
+      "change_id": 21,
+      "is_first": false,
+      "is_last": false
+    },
+    {
+      "ref": 908,
+      "subject": "Corrección de Bug en AutoRegistroServiceImpl para profesores con multiple identificación en integración/integration ifx",
+      "status": "Ready for smoke test",
+      "modified_date": "2025-05-02",
+      "created_date": "2025-03-20",
+      "change_id": 22,
+      "is_first": false,
+      "is_last": false
+    },
+    {
+      "ref": 908,
+      "subject": "Corrección de Bug en AutoRegistroServiceImpl para profesores con multiple identificación en integración/integration ifx",
+      "status": "Develop in progress",
+      "modified_date": "2025-05-02",
+      "created_date": "2025-03-13",
+      "change_id": 23,
       "is_first": false,
       "is_last": false
     },
@@ -4656,7 +5596,7 @@
       "status": "Open / Ready for sprint",
       "modified_date": "2025-05-02",
       "created_date": "2025-03-04",
-      "change_id": 6,
+      "change_id": 24,
       "is_first": false,
       "is_last": true
     }

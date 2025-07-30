@@ -9,8 +9,13 @@ let monthChart = null;
 // Función para cargar datos del JSON
 async function loadDashboardData() {
     try {
-        // Cargar desde la carpeta front
-        let response = await fetch('user_stories_report.json');
+        // Intentar cargar desde la ruta relativa
+        let response = await fetch('../json/user_stories_report.json');
+        
+        // Si falla, intentar con ruta absoluta
+        if (!response.ok) {
+            response = await fetch('user_stories_report.json');
+        }
         
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
@@ -707,14 +712,12 @@ async function loadHUData(huRef) {
     console.log(`✅ DEBUG: Datos de HU cargados:`, currentHUData);
 }
 
-// Función para cargar timeline detallado desde complete_timeline.json
+// Función para cargar timeline detallado
 async function loadTimelineData(huRef) {
-    console.log(`📅 Cargando timeline para HU ${huRef}`);
+    console.log(`📅 DEBUG: Cargando timeline para HU ${huRef}`);
     
     try {
-        const timelineUrl = 'complete_timeline.json?v=' + Date.now();
-        console.log(`🔗 Intentando cargar: ${timelineUrl}`);
-        const response = await fetch(timelineUrl);
+        const response = await fetch('../../json/complete_timeline.json');
         if (!response.ok) {
             throw new Error('No se pudo cargar el timeline completo');
         }
@@ -722,26 +725,21 @@ async function loadTimelineData(huRef) {
         const timelineData = await response.json();
         const huChanges = timelineData.changes_by_ref[huRef];
         
+        console.log(`🔍 DEBUG: Cambios encontrados para HU ${huRef}:`, huChanges ? huChanges.length : 0);
+        
         if (huChanges && huChanges.length > 0) {
-            console.log(`✅ Encontrados ${huChanges.length} cambios para HU ${huRef}`);
-            
-            // Procesar los cambios del timeline usando created_date para la cronología real
+            // Procesar los cambios del timeline
             currentTimelineData = huChanges.map(change => ({
                 id: change.change_id,
                 status: change.status,
-                date: new Date(change.created_date), // Usar created_date para la fecha real del cambio
-                subject: change.subject,
-                ref: change.ref,
+                date: new Date(change.modified_date),
                 isFirst: change.is_first,
                 isLast: change.is_last
             }));
             
-            // Ordenar por fecha (más antigua primero)
-            currentTimelineData.sort((a, b) => a.date - b.date);
-            
-            console.log(`✅ Timeline procesado con ${currentTimelineData.length} cambios únicos`);
+            console.log(`✅ DEBUG: Timeline cargado con ${currentTimelineData.length} elementos`);
         } else {
-            console.log(`⚠️ No se encontraron cambios para HU ${huRef}, creando timeline básico`);
+            // Crear timeline básico si no hay datos detallados
             createBasicTimeline();
         }
         
@@ -751,9 +749,9 @@ async function loadTimelineData(huRef) {
     }
 }
 
-// Función para crear timeline básico cuando no hay datos detallados
+// Función para crear timeline básico
 function createBasicTimeline() {
-    console.log('⚠️ Creando timeline básico');
+    console.log('⚠️ DEBUG: Creando timeline básico');
     
     if (!currentHUData) {
         console.error('❌ No hay datos de HU para crear timeline básico');
@@ -768,32 +766,30 @@ function createBasicTimeline() {
             id: 1,
             status: 'Open / Ready for sprint',
             date: createdDate,
-            subject: currentHUData.subject,
-            ref: currentHUData.ref,
             isFirst: true,
-            isLast: currentHUData.status === 'Open / Ready for sprint'
+            isLast: false
         }
     ];
     
-    // Agregar estado actual si es diferente del inicial
+    // Agregar estado actual si es diferente
     if (currentHUData.status !== 'Open / Ready for sprint') {
         currentTimelineData.push({
             id: 2,
             status: currentHUData.status,
             date: modifiedDate,
-            subject: currentHUData.subject,
-            ref: currentHUData.ref,
             isFirst: false,
             isLast: true
         });
+    } else {
+        currentTimelineData[0].isLast = true;
     }
     
-    console.log(`📅 Timeline básico creado con ${currentTimelineData.length} elementos`);
+    console.log(`📅 DEBUG: Timeline básico creado con ${currentTimelineData.length} elementos`);
 }
 
 // Función para renderizar toda la página de detalle
 function renderDetailPage() {
-    console.log('🎨 Renderizando página de detalle');
+    console.log('🎨 DEBUG: Renderizando página de detalle');
     
     if (!currentHUData) {
         showDetailError('No hay datos de HU para renderizar');
@@ -813,35 +809,19 @@ function renderDetailPage() {
     showHUInfo();
     showTimeline();
     
-    console.log('✅ Página de detalle renderizada completamente');
+    console.log('✅ DEBUG: Página de detalle renderizada completamente');
 }
 
 // Función para renderizar información de la HU
 function renderHUInfo() {
-    console.log('📋 Renderizando información de HU');
+    console.log('📋 DEBUG: Renderizando información de HU');
     
     const hu = currentHUData;
     
-    // Calcular tiempo vivo desde la creación hasta hoy
-    let createdDate;
-    
-    if (currentTimelineData && currentTimelineData.length > 0) {
-        // Usar la fecha más antigua del timeline como fecha de creación
-        createdDate = currentTimelineData[0].date;
-    } else {
-        // Fallback a los datos básicos de la HU
-        createdDate = new Date(hu.created_date);
-    }
-    
-    // Calcular tiempo vivo desde la creación hasta hoy
-    const today = new Date();
-    const ageInDays = Math.ceil((today - createdDate) / (1000 * 60 * 60 * 24));
-    
-    console.log(`📅 Cálculo tiempo vivo:`, {
-        createdDate: createdDate.toISOString(),
-        today: today.toISOString(),
-        ageInDays: ageInDays
-    });
+    // Calcular tiempo vivo
+    const createdDate = new Date(hu.created_date);
+    const modifiedDate = new Date(hu.modified_date);
+    const ageInDays = Math.ceil((modifiedDate - createdDate) / (1000 * 60 * 60 * 24));
     
     // Actualizar elementos del DOM
     document.getElementById('huName').textContent = hu.subject;
@@ -850,13 +830,13 @@ function renderHUInfo() {
     document.getElementById('huStatusBadge').className = `status-badge ${getStatusClass(hu.status)}`;
     document.getElementById('huAge').textContent = `${ageInDays} días`;
     document.getElementById('huCreated').textContent = formatDate(createdDate);
-    document.getElementById('huModified').textContent = formatDate(today);
-    document.getElementById('huChanges').textContent = currentTimelineData ? currentTimelineData.length : 0;
+    document.getElementById('huModified').textContent = formatDate(modifiedDate);
+    document.getElementById('huChanges').textContent = currentTimelineData.length;
 }
 
 // Función para renderizar timeline
 function renderTimeline() {
-    console.log(`📅 Renderizando timeline con ${currentTimelineData.length} elementos`);
+    console.log(`📅 DEBUG: Renderizando timeline con ${currentTimelineData.length} elementos`);
     
     const timelineContainer = document.getElementById('timeline');
     if (!timelineContainer) {
@@ -874,22 +854,19 @@ function renderTimeline() {
         
         const statusClass = getStatusClass(item.status);
         const isLast = index === currentTimelineData.length - 1;
-        const isFirst = index === 0;
         
         timelineItem.innerHTML = `
-            <div class="timeline-dot ${statusClass} ${isLast ? 'current' : ''} ${isFirst ? 'first' : ''}"></div>
+            <div class="timeline-dot ${statusClass} ${isLast ? 'current' : ''}"></div>
             <div class="timeline-content">
                 <div class="timeline-status">${item.status}</div>
                 <div class="timeline-date">${formatDate(item.date)}</div>
-                ${isFirst ? '<div class="timeline-badge">Inicio</div>' : ''}
-                ${isLast ? '<div class="timeline-badge">Actual</div>' : ''}
             </div>
         `;
         
         timelineContainer.appendChild(timelineItem);
     });
     
-    console.log('✅ Timeline renderizado correctamente');
+    console.log('✅ DEBUG: Timeline renderizado');
 }
 
 // Función para obtener clase CSS del estado
@@ -909,35 +886,7 @@ function getStatusClass(status) {
 
 // Función para formatear fecha
 function formatDate(date) {
-    if (!date || isNaN(date.getTime())) {
-        return 'Fecha inválida';
-    }
-    
-    const today = new Date();
-    const diffTime = Math.abs(today - date);
-    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-    
-    // Si es hoy, mostrar "Hoy"
-    if (diffDays === 0) {
-        return 'Hoy';
-    }
-    
-    // Si es ayer, mostrar "Ayer"
-    if (diffDays === 1) {
-        return 'Ayer';
-    }
-    
-    // Si es reciente (menos de 7 días), mostrar "Hace X días"
-    if (diffDays < 7) {
-        return `Hace ${diffDays} días`;
-    }
-    
-    // Para fechas más antiguas, mostrar fecha completa
-    return date.toLocaleDateString('es-ES', {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric'
-    });
+    return date.toLocaleDateString('es-ES');
 }
 
 // Función para formatear hora

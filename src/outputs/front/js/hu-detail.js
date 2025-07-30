@@ -40,7 +40,7 @@ async function initializeHUDetail() {
 async function loadHUData(huRef) {
     console.log(`📋 DEBUG: Cargando datos básicos para HU ${huRef}`);
     
-    const response = await fetch('user_stories_report.json');
+    const response = await fetch('../user_stories_report.json');
     if (!response.ok) {
         throw new Error('No se pudo cargar el reporte de User Stories');
     }
@@ -61,7 +61,7 @@ async function loadTimelineData(huRef) {
     console.log(`📅 DEBUG: Cargando timeline para HU ${huRef}`);
     
     try {
-        const response = await fetch('complete_timeline.json');
+        const response = await fetch('../json/complete_timeline.json');
         if (!response.ok) {
             throw new Error('No se pudo cargar el timeline completo');
         }
