@@ -1,6 +1,8 @@
 import * as fs from 'fs';
 import * as path from 'path';
-import { HistorialEntry } from '../interfaces/historial-json.interface';
+import { HistorialEntry } from '../types';
+import { FILE_PATHS } from '../constants';
+import { ensureDirectoryExists } from '../utils';
 
 interface ProcessedUserStory {
   ref: number;
@@ -19,6 +21,24 @@ interface ProcessedHistorial {
   old_user_stories: ProcessedUserStory[]; // Más de 5 meses
   recent_user_stories: ProcessedUserStory[]; // Menos de 5 meses
   ignored_previous_year: number;
+}
+
+interface StateChange {
+  ref: number;
+  subject: string;
+  status: string;
+  modified_date: string;
+  created_date: string;
+  change_id: number;
+  is_first: boolean;
+  is_last: boolean;
+}
+
+interface CompleteTimeline {
+  total_changes: number;
+  total_user_stories: number;
+  changes_by_ref: { [ref: number]: StateChange[] };
+  all_changes: StateChange[];
 }
 
 interface MonthGroup {
@@ -142,6 +162,61 @@ function processHistorial(historialData: HistorialEntry[]): ProcessedHistorial {
     recent_user_stories: recentUserStories,
     ignored_previous_year: ignoredPreviousYear
   };
+}
+
+/**
+ * Genera el timeline completo con todos los cambios de estado
+ */
+function generateCompleteTimeline(historialData: HistorialEntry[]): CompleteTimeline {
+  console.log('🔍 [TIMELINE] Generando timeline completo...');
+  
+  // Agrupar cambios por referencia de HU
+  const changesByRef = new Map<number, HistorialEntry[]>();
+  
+  historialData.forEach(entry => {
+    if (!changesByRef.has(entry.ref)) {
+      changesByRef.set(entry.ref, []);
+    }
+    changesByRef.get(entry.ref)!.push(entry);
+  });
+  
+  console.log(`📊 [TIMELINE] HUs únicas encontradas: ${changesByRef.size}`);
+  
+  const allChanges: StateChange[] = [];
+  const changesByRefObj: { [ref: number]: StateChange[] } = {};
+  
+  // Procesar cada HU
+  changesByRef.forEach((entries, ref) => {
+    // Ordenar entradas por fecha (más antiguo primero)
+    const sortedEntries = entries.sort((a, b) => 
+      new Date(a.modified_date).getTime() - new Date(b.modified_date).getTime()
+    );
+    
+    const stateChanges: StateChange[] = sortedEntries.map((entry, index) => ({
+      ref: entry.ref,
+      subject: entry.subject,
+      status: entry.status || 'Sin Estado',
+      modified_date: entry.modified_date,
+      created_date: entry.created_date,
+      change_id: index + 1,
+      is_first: index === 0,
+      is_last: index === sortedEntries.length - 1
+    }));
+    
+    changesByRefObj[ref] = stateChanges;
+    allChanges.push(...stateChanges);
+  });
+  
+  const completeTimeline: CompleteTimeline = {
+    total_changes: allChanges.length,
+    total_user_stories: changesByRef.size,
+    changes_by_ref: changesByRefObj,
+    all_changes: allChanges
+  };
+  
+  console.log(`✅ [TIMELINE] Timeline generado: ${completeTimeline.total_changes} cambios en ${completeTimeline.total_user_stories} HUs`);
+  
+  return completeTimeline;
 }
 
 /**
@@ -361,7 +436,7 @@ async function main() {
     console.log('🔍 [PROCESS] Iniciando procesamiento del historial...');
 
     // Verificar que existe el archivo de historial
-    const historialPath = path.join(process.cwd(), 'src', 'outputs', 'json', 'historial.json');
+    const historialPath = path.join(process.cwd(), FILE_PATHS.JSON_OUTPUT, 'historial.json');
     
     if (!fs.existsSync(historialPath)) {
       throw new Error(`No se encontró el archivo historial.json en ${historialPath}`);
@@ -377,27 +452,32 @@ async function main() {
     // Procesar el historial
     const processedData = processHistorial(historialData);
 
+    // Generar timeline completo
+    const completeTimeline = generateCompleteTimeline(historialData);
+
     // Mostrar estadísticas
     console.log('\n📈 [PROCESS] Estadísticas del procesamiento:');
     console.log(`- Total User Stories únicas: ${processedData.total_user_stories}`);
     console.log(`- User Stories antiguas (>5 meses): ${processedData.old_user_stories.length}`);
     console.log(`- User Stories recientes (≤5 meses): ${processedData.recent_user_stories.length}`);
     console.log(`- Entradas ignoradas (año anterior): ${processedData.ignored_previous_year}`);
+    console.log(`- Total cambios de estado: ${completeTimeline.total_changes}`);
 
     // Generar reportes
-    const outputDir = path.join(process.cwd(), 'src', 'outputs');
-    const jsonDir = path.join(outputDir, 'json');
-    const txtDir = path.join(outputDir, 'txt');
+    const outputDir = path.join(process.cwd(), FILE_PATHS.OUTPUTS);
+    const jsonDir = path.join(process.cwd(), FILE_PATHS.JSON_OUTPUT);
+    const txtDir = path.join(process.cwd(), FILE_PATHS.TXT_OUTPUT);
     
     // Crear carpetas si no existen
-    if (!fs.existsSync(jsonDir)) {
-      fs.mkdirSync(jsonDir, { recursive: true });
-    }
-    if (!fs.existsSync(txtDir)) {
-      fs.mkdirSync(txtDir, { recursive: true });
-    }
+    ensureDirectoryExists(jsonDir);
+    ensureDirectoryExists(txtDir);
     
     generateReports(processedData, jsonDir, txtDir);
+    
+    // Generar archivo JSON del timeline completo
+    const timelinePath = path.join(jsonDir, 'complete_timeline.json');
+    fs.writeFileSync(timelinePath, JSON.stringify(completeTimeline, null, 2), 'utf-8');
+    console.log(`✅ [TIMELINE] Timeline completo guardado: ${timelinePath}`);
 
     console.log('\n✅ [PROCESS] Procesamiento completado exitosamente!');
 

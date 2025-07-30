@@ -1,11 +1,13 @@
 import * as fs from 'fs';
 import * as path from 'path';
-import 'dotenv/config';
 
-// Interfaces
-import { Sprints } from './interfaces/consulta_sprint.interface';
-import { Hu } from './interfaces/consulta_status.interface';
-import { HistorialEntry, HistorialJSON } from './interfaces/historial-json.interface';
+// Configuración y utilidades
+import { config } from './config';
+import { FILE_PATHS } from './constants';
+import { ensureDirectoryExists } from './utils';
+
+// Tipos
+import { Sprints, Hu, HistorialEntry, HistorialJSON } from './types';
 
 // Servicios
 import { fetchSprints } from './services/sprint.service';
@@ -13,16 +15,10 @@ import { fetchUserStoryHistory } from './services/userStory.service';
 
 async function main() {
   try {
-    // 1) Verificamos variable de entorno
-    if (!process.env.PROYECT_TAIGA) {
-      throw new Error('ERROR: La variable de entorno PROYECT_TAIGA no está definida.');
-    }else if(!process.env.HOST_NAME){
-      throw new Error('ERROR: La variable de entorno HOST_NAME no está definida.');
-    }else if(!process.env.TOKEN){
-      throw new Error('ERROR: La variable de entorno TOKEN no está definida.');
-    }
-
-    const projectTaiga = parseInt(process.env.PROYECT_TAIGA, 10);
+    // 1) Validar configuración
+    config.validate();
+    
+    const projectTaiga = parseInt(config.env.PROYECT_TAIGA, 10);
 
     // 2) Obtenemos todos los sprints
     const allSprints: Sprints[] = await fetchSprints();
@@ -54,19 +50,13 @@ async function main() {
     });
 
     // 5) Prepara carpetas de salida
-    const outputDir = path.join(process.cwd(), 'src', 'outputs');
-    const jsonDir = path.join(outputDir, 'json');
-    const txtDir = path.join(outputDir, 'txt');
+    const outputDir = path.join(process.cwd(), FILE_PATHS.OUTPUTS);
+    const jsonDir = path.join(process.cwd(), FILE_PATHS.JSON_OUTPUT);
+    const txtDir = path.join(process.cwd(), FILE_PATHS.TXT_OUTPUT);
     
-    if (!fs.existsSync(outputDir)) {
-      fs.mkdirSync(outputDir, { recursive: true });
-    }
-    if (!fs.existsSync(jsonDir)) {
-      fs.mkdirSync(jsonDir, { recursive: true });
-    }
-    if (!fs.existsSync(txtDir)) {
-      fs.mkdirSync(txtDir, { recursive: true });
-    }
+    ensureDirectoryExists(outputDir);
+    ensureDirectoryExists(jsonDir);
+    ensureDirectoryExists(txtDir);
 
     // 6) Guardar log de sprints
     fs.writeFileSync(path.join(txtDir, 'sprints_log.txt'), logData.join('\n'), 'utf-8');

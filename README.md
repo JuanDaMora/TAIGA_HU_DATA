@@ -1,5 +1,7 @@
 # Taiga HU States
 
+**Autor:** Juan David Morantes Vergara
+
 Este proyecto permite consultar información de Sprints y User Stories desde la API de Taiga, generando archivos de salida que registran datos relevantes del proyecto. Está desarrollado en **TypeScript** y utiliza solicitudes HTTPS para interactuar con la API de Taiga.
 
 ## 📋 Descripción
@@ -24,8 +26,16 @@ Taiga_HU_states/
 │   │   ├── sprint.service.ts               # Servicio para consultar sprints
 │   │   └── userStory.service.ts            # Servicio para historial de US
 │   ├── scripts/
-│   │   └── process-historial.ts            # Script de procesamiento y filtrado
+│   │   ├── process-historial.ts            # Script de procesamiento y filtrado
+│   │   └── generate-dashboard.ts           # Script de generación del dashboard
 │   ├── outputs/                            # Carpeta generada con resultados
+│   │   ├── front/                          # Dashboard HTML modularizado
+│   │   │   ├── dashboard.html              # Plantilla HTML base
+│   │   │   ├── css/
+│   │   │   │   └── dashboard.css           # Estilos CSS del dashboard
+│   │   │   ├── js/
+│   │   │   │   └── dashboard.js            # Funcionalidad JavaScript
+│   │   │   └── README.md                   # Documentación del frontend
 │   │   ├── json/                           # Archivos JSON estructurados
 │   │   └── txt/                            # Archivos de texto plano
 │   └── main.ts                             # Punto de entrada principal
@@ -41,6 +51,39 @@ Taiga_HU_states/
 - Node.js (versión 14 o superior)
 - Yarn o npm
 - Acceso a un servidor Taiga con API habilitada
+
+## 📊 Actualización de Datos
+
+### ⚠️ Importante: Actualización de Datos
+
+Cuando cambias datos en Taiga (nuevas User Stories, cambios de estado, etc.), **debes ejecutar el pipeline completo** para que el dashboard refleje los cambios:
+
+```bash
+# Opción 1: Actualización completa (recomendado)
+yarn update
+
+# Opción 2: Actualización y servir automáticamente
+yarn update-and-serve
+
+# Opción 3: Pipeline completo con servidor
+yarn full-pipeline
+```
+
+### 🔄 Flujo de Actualización
+
+1. **`yarn start`** - Consulta datos actuales de Taiga
+2. **`yarn process`** - Procesa y genera archivos JSON
+3. **`yarn dashboard`** - Regenera el dashboard con datos actualizados
+4. **`yarn serve`** - Sirve el dashboard (opcional)
+
+### 📈 Verificación de Actualización
+
+Después de ejecutar la actualización, verifica que los números en el dashboard hayan cambiado:
+- Total User Stories
+- Completadas
+- En Progreso
+- Promedio de Edad
+- Distribución por estado
 
 ### Pasos de Instalación
 
@@ -110,6 +153,12 @@ yarn start
 
 # 2. Procesar y filtrar user stories (opcional)
 yarn process
+
+# 3. Generar dashboard interactivo (opcional)
+yarn dashboard
+
+# O ejecutar todo el flujo completo:
+yarn full-report
 ```
 
 ### Scripts Disponibles
@@ -126,6 +175,18 @@ yarn debug
 
 # Procesar historial JSON (filtrar y ordenar user stories)
 yarn process
+
+# Generar dashboard HTML interactivo
+yarn dashboard
+
+# Generar reporte completo (datos + procesamiento + dashboard)
+yarn full-report
+
+# Servidor local para dashboard (evita problemas CORS)
+yarn serve
+
+# Generar dashboard + servidor automático
+yarn serve-dashboard
 ```
 
 ### Ejecución Individual
@@ -139,7 +200,46 @@ node dist/main.js
 
 # Solo procesar historial (requiere historial.json previo)
 node dist/scripts/process-historial.js
+
+# Solo generar dashboard (requiere user_stories_report.json previo)
+node dist/scripts/generate-dashboard.js
 ```
+
+### 🚀 Abrir el Dashboard
+
+#### ⚠️ Importante: Problema de CORS
+Los navegadores modernos bloquean las peticiones AJAX a archivos locales por seguridad. **No abras el archivo HTML directamente**.
+
+#### ✅ Soluciones Recomendadas:
+
+**Opción 1: Servidor Local (Recomendado)**
+```bash
+# Generar dashboard y abrir servidor automáticamente
+yarn serve-dashboard
+
+# O manualmente:
+yarn dashboard
+yarn serve
+```
+Luego abre: http://localhost:8080
+
+**Opción 2: Live Server (VS Code)**
+- Instala la extensión "Live Server"
+- Click derecho en `dashboard.html` → "Open with Live Server"
+
+**Opción 3: Servidor HTTP Manual**
+```bash
+# Instalar servidor global
+npm install -g http-server
+
+# Navegar a la carpeta y ejecutar
+cd src/outputs/front
+http-server -p 8080 -o
+```
+
+#### ❌ No Funciona:
+- Abrir `dashboard.html` directamente con doble click
+- Usar protocolo `file://`
 
 ## 📊 Salida del Programa
 
@@ -200,6 +300,41 @@ Historial estructurado en formato JSON con la siguiente estructura:
 ### Archivos Generados por `yarn process`
 
 El script de procesamiento genera archivos adicionales organizados por tipo:
+
+### Archivos Generados por `yarn dashboard`
+
+El script de dashboard genera una visualización HTML interactiva modularizada:
+
+#### 📁 `src/outputs/front/` - Dashboard Frontend Modularizado
+
+##### 1. `dashboard.html`
+Plantilla HTML base con placeholders para datos dinámicos:
+- **Estructura semántica**: HTML5 semántico y accesible
+- **Placeholders**: Sistema de plantillas para inserción de datos
+- **Referencias externas**: CSS y JS separados para modularidad
+- **Responsive design**: Optimizado para todos los dispositivos
+
+##### 2. `css/dashboard.css`
+Estilos CSS completos del dashboard:
+- **Material Design**: Paleta de colores y componentes consistentes
+- **Animaciones**: Transiciones suaves y efectos visuales
+- **Media queries**: Diseño responsive para móvil, tablet y desktop
+- **Estilos de impresión**: Optimizado para impresión
+
+##### 3. `js/dashboard.js`
+Funcionalidad JavaScript completa:
+- **Carga dinámica**: Datos desde JSON con manejo de errores
+- **Filtros interactivos**: Búsqueda y filtrado en tiempo real
+- **Ordenamiento**: Tablas ordenables por columnas
+- **Exportación**: Funciones para CSV y JSON
+- **Gráficos**: Integración con Chart.js para visualizaciones
+
+##### 4. `README.md`
+Documentación técnica del frontend:
+- Guía de desarrollo y personalización
+- Estructura de archivos y componentes
+- Compatibilidad y debugging
+- Optimizaciones y mejores prácticas
 
 #### 📁 `src/outputs/json/` - Archivos JSON de Análisis
 

@@ -1,14 +1,14 @@
 import * as https from 'https';
-import 'dotenv/config';
-import { Hu } from '../interfaces/consulta_status.interface';
+import { Hu } from '../types';
+import { config } from '../config';
+import { API_CONFIG } from '../constants';
 
 /**
  * Obtiene el historial (actividad) de una User Story específica.
  */
 export function fetchUserStoryHistory(userStoryId: number): Promise<Hu[]> {
   return new Promise((resolve, reject) => {
-    const HOST_NAME = process.env.HOST_NAME || '';
-    const TOKEN = process.env.TOKEN || '';
+    const { HOST_NAME, TOKEN } = config.env;
 
     const page = 1;
     const type = 'activity';
@@ -65,7 +65,7 @@ export function fetchUserStoryHistory(userStoryId: number): Promise<Hu[]> {
     });
 
     // Configurar timeout
-    req.setTimeout(30000); // 30 segundos
+    req.setTimeout(API_CONFIG.TIMEOUT);
 
     req.end();
   });

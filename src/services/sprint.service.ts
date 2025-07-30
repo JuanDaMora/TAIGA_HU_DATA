@@ -1,15 +1,14 @@
 import * as https from 'https';
-import 'dotenv/config';
-import { Sprints } from '../interfaces/consulta_sprint.interface';
+import { Sprints } from '../types';
+import { config } from '../config';
+import { API_CONFIG } from '../constants';
 
 /**
  * Obtiene todos los sprints para un proyecto dado.
  */
 export function fetchSprints(): Promise<Sprints[]> {
   return new Promise((resolve, reject) => {
-    const HOST_NAME = process.env.HOST_NAME || '';
-    const TOKEN = process.env.TOKEN || '';
-    const PROYECT_TAIGA = process.env.PROYECT_TAIGA || '';
+    const { HOST_NAME, TOKEN, PROYECT_TAIGA } = config.env;
 
     // Ejemplo de filtrado para no traer sprints cerrados
     const params = {
@@ -70,7 +69,7 @@ export function fetchSprints(): Promise<Sprints[]> {
     });
 
     // Configurar timeout
-    req.setTimeout(30000); // 30 segundos
+    req.setTimeout(API_CONFIG.TIMEOUT);
 
     req.end();
   });
