@@ -12,6 +12,27 @@ El proyecto `Taiga_HU_states` es una herramienta de análisis que:
 - **Extrae user stories** asociadas a cada sprint
 - **Genera historial de estados** de cada user story
 - **Exporta datos** en formato de texto para análisis posterior
+- **Proporciona dashboard interactivo** con visualizaciones y filtros avanzados
+
+## 🆕 Últimas Actualizaciones
+
+### ✅ Correcciones Implementadas (Julio 2025)
+
+#### 🔧 Cálculo de Tiempo Vivo Corregido
+- **Problema**: El tiempo vivo se calculaba incorrectamente usando `modified_date` en lugar de la fecha actual
+- **Solución**: Ahora calcula desde la fecha de creación hasta hoy
+- **Resultado**: Tiempos de vida reales y precisos (ej: 131 días en lugar de 13 días)
+
+#### 🎯 Dashboard Mejorado
+- **Timeline detallado**: Muestra historial completo de cambios de estado
+- **Fechas precisas**: Formato legible ("Hoy", "Ayer", "Hace X días")
+- **Estados únicos**: Eliminación de estados repetidos consecutivos
+- **Cache busting**: Solución a problemas de carga de archivos JSON
+
+#### 📊 Procesamiento de Datos Optimizado
+- **Filtrado inteligente**: Solo mantiene el estado más reciente de cada tipo
+- **Ordenamiento cronológico**: Timeline ordenado por fecha de creación
+- **Datos consistentes**: Eliminación de duplicados y inconsistencias
 
 ## 🏗️ Arquitectura del Proyecto
 
@@ -451,6 +472,14 @@ Total User Stories recientes: 48
 - Genera timeline de evolución de estados
 - Procesa y filtra user stories por antigüedad y criterios específicos
 
+### Dashboard Interactivo
+- **Visualización en tiempo real**: Gráficos y estadísticas actualizadas
+- **Filtros avanzados**: Búsqueda por estado, fecha, texto
+- **Timeline detallado**: Historial completo de cambios de estado por HU
+- **Cálculo preciso de tiempo vivo**: Desde creación hasta hoy
+- **Exportación de datos**: CSV y JSON
+- **Diseño responsive**: Optimizado para móvil, tablet y desktop
+
 ### Procesamiento Avanzado
 - **Elimina duplicados**: Usa referencias únicas para evitar repeticiones
 - **Ordena por antigüedad**: User stories más antiguas primero
@@ -461,6 +490,7 @@ Total User Stories recientes: 48
 - **Prioriza estados activos**: User stories "Done" aparecen al final, estados en progreso primero
 - **Marca visual**: Separador claro entre user stories completadas y en progreso
 - **Estado más reciente**: Captura el estado actual correcto de cada user story
+- **Estados únicos**: Elimina estados repetidos consecutivos, mantiene solo el más reciente
 
 ### Exportación de Datos
 - Genera archivos de texto legibles

@@ -167,10 +167,17 @@ function main() {
         const jsonCopyPath = path.join(frontDir, 'user_stories_report.json');
         fs.writeFileSync(jsonCopyPath, JSON.stringify(data, null, 2), 'utf8');
 
-        // Verificar que complete_timeline.json existe (pero no copiarlo)
+        // Mover complete_timeline.json a la carpeta front para acceso web (solo si no existe)
         const timelineSourcePath = path.join(__dirname, '..', '..', 'src', 'outputs', 'json', 'complete_timeline.json');
+        const timelineDestPath = path.join(frontDir, 'complete_timeline.json');
+        
         if (fs.existsSync(timelineSourcePath)) {
-            console.log(`📁 Timeline completo disponible en: ${timelineSourcePath}`);
+            if (!fs.existsSync(timelineDestPath)) {
+                fs.copyFileSync(timelineSourcePath, timelineDestPath);
+                console.log(`📁 Timeline completo movido a: ${timelineDestPath}`);
+            } else {
+                console.log(`📁 Timeline completo ya existe en: ${timelineDestPath}`);
+            }
         } else {
             console.log('⚠️ Timeline completo no encontrado, se usará timeline básico');
         }

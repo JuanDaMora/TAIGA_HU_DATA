@@ -164,6 +164,7 @@ function processHistorial(historialData: HistorialEntry[]): ProcessedHistorial {
 
 /**
  * Genera el timeline completo con todos los cambios de estado
+ * Filtra estados repetidos consecutivos, manteniendo solo el más reciente
  */
 function generateCompleteTimeline(historialData: HistorialEntry[]): CompleteTimeline {
   console.log('🔍 [TIMELINE] Generando timeline completo...');
@@ -190,7 +191,37 @@ function generateCompleteTimeline(historialData: HistorialEntry[]): CompleteTime
       new Date(a.modified_date).getTime() - new Date(b.modified_date).getTime()
     );
     
-    const stateChanges: StateChange[] = sortedEntries.map((entry, index) => ({
+    // Filtrar estados repetidos consecutivos, manteniendo solo el más reciente
+    const filteredEntries: HistorialEntry[] = [];
+    const seenStates = new Map<string, HistorialEntry>();
+    
+    sortedEntries.forEach(entry => {
+      const status = entry.status || 'Sin Estado';
+      
+      // Si ya hemos visto este estado, actualizar con la entrada más reciente
+      if (seenStates.has(status)) {
+        const existingEntry = seenStates.get(status)!;
+        const existingDate = new Date(existingEntry.modified_date);
+        const currentDate = new Date(entry.modified_date);
+        
+        // Si la entrada actual es más reciente, reemplazar
+        if (currentDate > existingDate) {
+          seenStates.set(status, entry);
+        }
+      } else {
+        // Si es un estado nuevo, agregarlo
+        seenStates.set(status, entry);
+      }
+    });
+    
+    // Convertir el mapa de estados únicos a array y ordenar por fecha
+    const uniqueEntries = Array.from(seenStates.values()).sort((a, b) => 
+      new Date(a.modified_date).getTime() - new Date(b.modified_date).getTime()
+    );
+    
+    console.log(`📋 [TIMELINE] HU ${ref}: ${sortedEntries.length} cambios originales → ${uniqueEntries.length} cambios únicos`);
+    
+    const stateChanges: StateChange[] = uniqueEntries.map((entry, index) => ({
       ref: entry.ref,
       subject: entry.subject,
       status: entry.status || 'Sin Estado',
@@ -198,7 +229,7 @@ function generateCompleteTimeline(historialData: HistorialEntry[]): CompleteTime
       created_date: entry.created_date,
       change_id: index + 1,
       is_first: index === 0,
-      is_last: index === sortedEntries.length - 1
+      is_last: index === uniqueEntries.length - 1
     }));
     
     changesByRefObj[ref] = stateChanges;
@@ -212,7 +243,7 @@ function generateCompleteTimeline(historialData: HistorialEntry[]): CompleteTime
     all_changes: allChanges
   };
   
-  console.log(`✅ [TIMELINE] Timeline generado: ${completeTimeline.total_changes} cambios en ${completeTimeline.total_user_stories} HUs`);
+  console.log(`✅ [TIMELINE] Timeline generado: ${completeTimeline.total_changes} cambios únicos en ${completeTimeline.total_user_stories} HUs`);
   
   return completeTimeline;
 }

@@ -4,6 +4,27 @@
 
 Esta carpeta contiene la implementación frontend modularizada del dashboard de User Stories, separando HTML, CSS y JavaScript para una mejor organización y mantenimiento.
 
+## 🆕 Últimas Mejoras (Julio 2025)
+
+### ✅ Correcciones Implementadas
+
+#### 🔧 Cálculo de Tiempo Vivo Preciso
+- **Problema resuelto**: El tiempo vivo ahora se calcula desde la fecha de creación hasta hoy
+- **Antes**: Usaba `modified_date` (resultaba en tiempos muy cortos)
+- **Ahora**: Usa fecha actual (tiempos reales y precisos)
+- **Ejemplo**: HU 964 ahora muestra ~131 días en lugar de 13 días
+
+#### 📅 Timeline Mejorado
+- **Fechas legibles**: Formato "Hoy", "Ayer", "Hace X días"
+- **Estados únicos**: Eliminación de estados repetidos consecutivos
+- **Ordenamiento cronológico**: Timeline ordenado por fecha de creación
+- **Badges informativos**: "Inicio" y "Actual" en el timeline
+
+#### 🚀 Optimizaciones de Rendimiento
+- **Cache busting**: Solución a problemas de carga de archivos JSON
+- **Logs de debug**: Información detallada para troubleshooting
+- **Manejo de errores**: Fallback a timeline básico si falla la carga
+
 ## 🏗️ Estructura de Archivos
 
 ```
@@ -87,11 +108,19 @@ front/
 - **Tablas ordenables**: Ordenamiento por columnas
 - **Filtros avanzados**: Múltiples criterios de filtrado
 
+### Dashboard de User Stories
+- **Vista general**: Estadísticas y métricas del proyecto
+- **Tabla de HUs**: Lista completa con filtros y ordenamiento
+- **Detalle de HU**: Vista individual con timeline completo
+- **Cálculo de tiempo vivo**: Preciso desde creación hasta hoy
+- **Timeline de estados**: Historial completo de cambios
+
 ### Interactividad
 - **Búsqueda en tiempo real**: Filtrado instantáneo
 - **Ordenamiento dinámico**: Click en columnas para ordenar
 - **Filtros combinados**: Múltiples filtros simultáneos
 - **Exportación**: Descarga de datos en CSV/JSON
+- **Navegación fluida**: Entre vista general y detalles
 
 ### Performance
 - **Lazy Loading**: Carga diferida de componentes
@@ -240,6 +269,23 @@ console.log(dashboardData);
 Dashboard.exportToCSV();
 Dashboard.clearFilters();
 ```
+
+### Problemas Comunes Resueltos
+
+#### ❌ Error 404 en complete_timeline.json
+**Síntoma**: `Failed to load resource: 404 (Not Found)`
+**Solución**: El archivo se copia automáticamente durante `yarn dashboard`
+**Verificación**: Confirmar que existe en `src/outputs/front/complete_timeline.json`
+
+#### ❌ Tiempo vivo incorrecto
+**Síntoma**: Muestra tiempos muy cortos (ej: 13 días)
+**Solución**: Corregido para calcular desde creación hasta hoy
+**Verificación**: Revisar logs en consola del navegador
+
+#### ❌ Estados repetidos en timeline
+**Síntoma**: Estados duplicados consecutivos
+**Solución**: Filtrado automático en el procesamiento
+**Verificación**: Solo debe mostrar el estado más reciente de cada tipo
 
 ### Herramientas de Desarrollo
 - **Chrome DevTools**: Para debugging de JavaScript
